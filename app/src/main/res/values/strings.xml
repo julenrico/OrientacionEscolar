@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">OrientacionEscolar</string>
+    <string name="slideFrase1">Contesta</string>
+    <string name="slideFrase2">Descúbrete</string>
+    <string name="slideFrase3">¡Llévalo a cabo!</string>
+    <string name="slideParrafo1">Responde a las preguntas en base a la experiencia y gustos que tengas.</string>
+    <string name="slideParrafo2">Averigua qué te gustaría estudiar y de qué te ves trabajando en el futuro.</string>
+    <string name="slideParrafo3">Infórmate sobre los grados y carreras que te interesan y contacta con los centros que los imparten.</string>
+</resources>
