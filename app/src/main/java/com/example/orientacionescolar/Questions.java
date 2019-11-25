@@ -40,6 +40,7 @@ public class Questions extends AppCompatActivity implements View.OnTouchListener
                 if(contFinish==3){
                     txtInputName.setVisibility(View.VISIBLE);
                 }
+                //TODO: CHANGE TOAST
                 Toast.makeText(Questions.this, "Pulsa la pantalla para continuar...", Toast.LENGTH_SHORT).show();
             }
         });
