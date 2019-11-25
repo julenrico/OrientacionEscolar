@@ -3,24 +3,17 @@ package com.example.orientacionescolar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
-import android.app.ActionBar;
-import android.content.Intent;
 import android.os.Bundle;
-import android.text.Layout;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.Checkable;
-import android.widget.TextView;
 import android.widget.Toast;
 
-public class Questions extends AppCompatActivity implements View.OnTouchListener, View.OnClickListener{
+public class Questions extends AppCompatActivity implements View.OnTouchListener, View.OnClickListener {
      TextAnimation ta;
      ConstraintLayout l;
      int cont=0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,7 +27,7 @@ public class Questions extends AppCompatActivity implements View.OnTouchListener
         l.setOnClickListener(this);
     }
 
- //TODO:CONSTANTLY EXECUTE TOAST PRESS TO CONTINUE
+ //TODO:CONSTANTLY EXECUTE TOAST PRESS TO CONTINUE...
 
     @Override
     public boolean onTouch(View v, MotionEvent event) {
