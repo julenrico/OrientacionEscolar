@@ -6,17 +6,29 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.DatePicker;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.datepicker.MaterialDatePicker;
 import com.google.android.material.textfield.TextInputLayout;
 
 public class Questions extends AppCompatActivity implements View.OnTouchListener, View.OnClickListener {
-     TextAnimation ta;
+
+    Button btnConfirmar;
+
+    TextView txtDate;
      TextView txtName;
+
+    TextAnimation ta;
+
      TextInputLayout txtInputName;
+     TextInputLayout txtInputDate;
+
      ConstraintLayout l;
+
      int contSwitch=0;
      int contFinish=0;
 
@@ -24,8 +36,11 @@ public class Questions extends AppCompatActivity implements View.OnTouchListener
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_generic_questions);
+        btnConfirmar=findViewById(R.id.btnConfirmar);
         txtName=findViewById(R.id.txtName);
+        txtDate=findViewById(R.id.txtDate);
         txtInputName=findViewById(R.id.txtInputName);
+        txtInputDate=findViewById(R.id.txtInputDate);
         ta = findViewById(R.id.tv);
         ta.setText("");
         ta.setCharacterDelay(50);
@@ -33,14 +48,18 @@ public class Questions extends AppCompatActivity implements View.OnTouchListener
         l = findViewById(R.id.root);
         l.setOnTouchListener(this);
         l.setOnClickListener(this);
+        btnConfirmar.setOnClickListener(this);
+        txtDate.setOnClickListener(this);
         ta.setListener(new TextAnimation.TextAnimationListener() {
             @Override
             public void onFinish() {
                 contFinish++;
                 if(contFinish==3){
                     txtInputName.setVisibility(View.VISIBLE);
+                    txtInputDate.setVisibility(View.VISIBLE);
+                    btnConfirmar.setVisibility(View.VISIBLE);
                 }
-                //TODO: CHANGE TOAST
+
                 Toast.makeText(Questions.this, "Pulsa la pantalla para continuar...", Toast.LENGTH_SHORT).show();
             }
         });
@@ -62,7 +81,7 @@ public class Questions extends AppCompatActivity implements View.OnTouchListener
         return false;
     }
 
-    //TODO: ADD AGE SPINNER AND USE FRAGMENTS
+    //TODO: USE FRAGMENTS AND ORDER THE CODE
 
     @Override
     public void onClick(View v) {
@@ -81,6 +100,11 @@ public class Questions extends AppCompatActivity implements View.OnTouchListener
                         break;
                 }
                 contSwitch++;
+            }
+            if(v==txtDate){
+                MaterialDatePicker.Builder<Long> builder = MaterialDatePicker.Builder.datePicker();
+                MaterialDatePicker<Long> picker = builder.build();
+                picker.show(getSupportFragmentManager(), picker.toString());
             }
         }
 

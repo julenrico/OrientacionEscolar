@@ -8,5 +8,5 @@
     <string name="slideParrafo3">Infórmate sobre los grados y carreras que te interesan y contacta con los centros que los imparten.</string>
     <string name="txtPresentation1">Hola, bienvenido a Orientación Escolar. Mi nombre es Julen e intentaré guiarte en todo lo necesario para que puedas tomar las mejores decisiones a lo largo de tu vida estudiantil.</string>
     <string name="txtPresentation2">Para ello, voy a necesitar saber unas cuantas cosas sobre ti. A si que vamos a empezar con unas preguntas genéricas y avanzaremos poco a poco defininiendo tus gustos y tus puntos fuertes.</string>
-    <string name="txtPresentation3">Empecemos, ¿Podrías indicarme tu nombre, apellido y edad por favor?.</string>
+    <string name="txtPresentation3">Empecemos, ¿Podrías indicarme tu nombre, apellido y fecha de nacimiento por favor?.</string>
 </resources>
