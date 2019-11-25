@@ -10,6 +10,7 @@ public class TextAnimation extends AppCompatTextView {
     private CharSequence mText;
     private int mIndex;
     private long mDelay=150;
+    public TextAnimationListener listener;
 
     public TextAnimation(Context context) {
         super(context);
@@ -27,6 +28,11 @@ public class TextAnimation extends AppCompatTextView {
 
             if(mIndex<mText.length()){
                 mHandler.postDelayed(characterAdder, mDelay);
+            }
+            else{
+                if(listener!=null){
+                    listener.onFinish();
+                }
             }
         }
     };
@@ -49,4 +55,17 @@ public class TextAnimation extends AppCompatTextView {
         }
         return false;
     }
+
+    public TextAnimationListener getListener() {
+        return listener;
+    }
+
+    public void setListener(TextAnimationListener listener) {
+        this.listener = listener;
+    }
+
+    public interface TextAnimationListener{
+        void onFinish();
+    }
+
 }
