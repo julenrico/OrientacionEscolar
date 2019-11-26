@@ -54,13 +54,20 @@ public class Questions extends AppCompatActivity implements View.OnTouchListener
             @Override
             public void onFinish() {
                 contFinish++;
-                if(contFinish==3){
-                    txtInputName.setVisibility(View.VISIBLE);
-                    txtInputDate.setVisibility(View.VISIBLE);
-                    btnConfirmar.setVisibility(View.VISIBLE);
+                switch (contFinish){
+                    case 1:
+                        Toast.makeText(Questions.this, "Pulsa la pantalla para continuar...", Toast.LENGTH_SHORT).show();
+                        break;
+                    case 2:
+                        Toast.makeText(Questions.this, "Pulsa 2 veces la pantalla para avanzar al final del texto...", Toast.LENGTH_SHORT).show();
+                        break;
+                    case 3:
+                        txtInputName.setVisibility(View.VISIBLE);
+                        txtInputDate.setVisibility(View.VISIBLE);
+                        btnConfirmar.setVisibility(View.VISIBLE);
+                        Toast.makeText(Questions.this, "Pulsa el botón para continuar...", Toast.LENGTH_SHORT).show();
+                        break;
                 }
-
-                Toast.makeText(Questions.this, "Pulsa la pantalla para continuar...", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -107,6 +114,7 @@ public class Questions extends AppCompatActivity implements View.OnTouchListener
                 picker.show(getSupportFragmentManager(), picker.toString());
             }
         }
+        //TODO: MAKE DOUBLE CLICK EVENT
 
     }
 
