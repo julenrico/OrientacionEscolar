@@ -9,4 +9,8 @@
     <string name="txtPresentation1">Hola, bienvenido a Orientación Escolar. Mi nombre es Julen e intentaré guiarte en todo lo necesario para que puedas tomar las mejores decisiones a lo largo de tu vida estudiantil.</string>
     <string name="txtPresentation2">Para ello, voy a necesitar saber unas cuantas cosas sobre ti. A si que vamos a empezar con unas preguntas genéricas y avanzaremos poco a poco defininiendo tus gustos y tus puntos fuertes.</string>
     <string name="txtPresentation3">Empecemos, ¿Podrías indicarme tu nombre, apellido y fecha de nacimiento por favor?.</string>
+    <string name="title_activity_info_consulting_vd">InfoConsultingVdActivity</string>
+    <string name="tab_text_1">University Degrees</string>
+    <string name="tab_text_2">High Grades</string>
+    <string name="tab_text_3">Medium Grades</string>
 </resources>

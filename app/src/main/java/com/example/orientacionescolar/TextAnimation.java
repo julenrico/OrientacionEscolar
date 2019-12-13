@@ -68,4 +68,8 @@ public class TextAnimation extends AppCompatTextView {
         void onFinish();
     }
 
+    public void endText(){
+        setText(mText);
+    }
+
 }
