@@ -35,23 +35,28 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     /*Functions to insert data */
 
-    public void insertBranch(int branchId, String branchName){
+    public void insertBranch(SQLiteDatabase db, int branchId, String branchName){
 
+        db.execSQL("INSERT INTO university_degree_branches (branch_Id, branch_Name) VALUES ("+branchId+","+ branchName+")");
     }
 
-    public void insertCampus(int campusId, String campusName){
+    public void insertCampus(SQLiteDatabase db, int campusId, String campusName){
 
+        db.execSQL("INSERT INTO university_degree_campus (campus_Id, campus_Name) VALUES ("+campusId+","+ campusName+")");
     }
 
-    public void insertDegree(int degreeId, String degreeName, int degreeBranchId){
+    public void insertDegree(SQLiteDatabase db, int degreeId, String degreeName, int degreeBranchId){
 
+        db.execSQL("INSERT INTO university_degrees (degree_Id, degree_Name, degree_Branch) VALUES ("+degreeId+","+ degreeName+","+ degreeBranchId+")");
     }
 
-    public void insertCenters(int centerId, String centerName, int centerCampusId){
+    public void insertCenters(SQLiteDatabase db, int centerId, String centerName, int centerCampusId){
 
+        db.execSQL("INSERT INTO university_degree_centers (center_Id, center_Name, center_Campus) VALUES ("+centerId+","+ centerName+","+ centerCampusId+")");
     }
 
-    public void insertCenterDegrees(int centerId, int degreeId){
+    public void insertCenterDegrees(SQLiteDatabase db, int centerId, int degreeId){
 
+        db.execSQL("INSERT INTO university_center_degrees (center_Id, degree_Id) VALUES ("+centerId+","+ degreeId+"+)");
     }
 }
