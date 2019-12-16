@@ -9,7 +9,8 @@
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
+        android:theme="@style/AppTheme.AppBarOverlay"
+        android:backgroundTint="@color/colorPrimaryDark">
 
         <TextView
             android:id="@+id/title"
@@ -23,15 +24,14 @@
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tabs"
-            style="@style/TabText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="?attr/colorPrimary"
-            app:tabIndicatorColor="@color/colorAccent"
+            android:background="?attr/colorPrimaryDark"
+            app:tabIndicatorColor="@color/txtColor"
             app:tabIndicatorGravity="bottom"
             app:tabIndicatorHeight="4dp"
-            app:tabSelectedTextColor="@color/colorAccent"
-            app:tabTextAppearance="@style/TabText" />
+            app:tabSelectedTextColor="@color/txtColor"
+            app:tabTextAppearance="@style/TabText"/>
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.viewpager.widget.ViewPager
@@ -46,5 +46,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
+        android:backgroundTint="@color/colorPrimary"
+        android:src="@drawable/ic_book_fab" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

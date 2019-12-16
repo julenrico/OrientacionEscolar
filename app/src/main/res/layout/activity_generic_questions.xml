@@ -27,8 +27,6 @@
             android:id="@+id/txtDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:drawableEnd="@drawable/ic_calendar"
-            android:drawablePadding="10dp"
             android:hint="Date"
             android:inputType="textPersonName" />
     </com.google.android.material.textfield.TextInputLayout>
