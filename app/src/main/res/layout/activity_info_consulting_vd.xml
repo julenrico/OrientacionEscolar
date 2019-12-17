@@ -40,18 +40,18 @@
         android:id="@+id/fabLayout1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginRight="@dimen/standard_23"
+        android:layout_marginRight="@dimen/standard_19"
         android:padding="@dimen/standard_12"
         android:clipToPadding="false"
         android:gravity="center_vertical"
-        android:layout_marginBottom="@dimen/standard_23"
+        android:layout_marginBottom="@dimen/standard_30"
         android:layout_gravity="bottom|end"
         android:visibility="gone">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="FabTitle1"/>
+            android:text="@string/fab_menu_1"/>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab1"
@@ -70,16 +70,16 @@
         android:layout_height="wrap_content"
         android:padding="@dimen/standard_12"
         android:clipToPadding="false"
-        android:layout_marginRight="@dimen/standard_23"
+        android:layout_marginRight="@dimen/standard_19"
         android:gravity="center_vertical"
-        android:layout_marginBottom="@dimen/standard_23"
+        android:layout_marginBottom="@dimen/standard_35"
         android:layout_gravity="bottom|end"
         android:visibility="gone">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="FabTitle2"/>
+            android:text="@string/fab_menu_2"/>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab2"
@@ -99,16 +99,16 @@
         android:layout_height="wrap_content"
         android:padding="@dimen/standard_12"
         android:clipToPadding="false"
-        android:layout_marginRight="@dimen/standard_23"
+        android:layout_marginRight="@dimen/standard_19"
         android:gravity="center_vertical"
-        android:layout_marginBottom="@dimen/standard_23"
+        android:layout_marginBottom="@dimen/standard_40"
         android:layout_gravity="bottom|end"
         android:visibility="gone">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="FabTitle3"/>
+            android:text="@string/fab_menu_3"/>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab3"

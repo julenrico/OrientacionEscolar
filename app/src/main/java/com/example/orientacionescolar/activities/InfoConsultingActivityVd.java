@@ -1,6 +1,7 @@
 package com.example.orientacionescolar.activities;
 
 import android.animation.Animator;
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.orientacionescolar.R;
@@ -49,6 +50,15 @@ public class InfoConsultingActivityVd extends AppCompatActivity {
                 } else {
                     closeFABMenu();
                 }
+            }
+        });
+
+        fab1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                closeFABMenu();
+                isFABOpen=false;
+                startActivity(new Intent(InfoConsultingActivityVd.this, QuestionsActivity.class));
             }
         });
 

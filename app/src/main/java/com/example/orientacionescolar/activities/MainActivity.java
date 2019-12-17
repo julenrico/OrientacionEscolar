@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        carouselView = (CarouselView) findViewById(R.id.carouselView);
+        carouselView = findViewById(R.id.carouselView);
         carouselView.setPageCount(3);
 
         carouselView.setFillColor(getResources().getColor(R.color.colorPrimary));
@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, InfoConsultingActivityVd.class));
-                Toast.makeText(MainActivity.this, "Mantén pulsado para que el texto avance más rápido...", Toast.LENGTH_LONG).show();
+                //Toast.makeText(MainActivity.this, "Mantén pulsado para que el texto avance más rápido...", Toast.LENGTH_LONG).show();
             }
         });
 
