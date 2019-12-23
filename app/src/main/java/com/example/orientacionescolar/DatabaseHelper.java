@@ -57,6 +57,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public void insertCenterDegrees(SQLiteDatabase db, int centerId, int degreeId){
 
-        db.execSQL("INSERT INTO university_center_degrees (center_Id, degree_Id) VALUES ("+centerId+","+ degreeId+"+)");
+        db.execSQL("INSERT INTO university_center_degrees (center_Id, degree_Id) VALUES ("+centerId+","+ degreeId+")");
     }
 }

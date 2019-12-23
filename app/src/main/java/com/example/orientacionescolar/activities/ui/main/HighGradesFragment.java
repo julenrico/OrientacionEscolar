@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -23,7 +25,20 @@ public class HighGradesFragment extends Fragment {
             @NonNull LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_high_grades, container, false);
-        final TextView textView = root.findViewById(R.id.labelHighGrades);
+
+        String[] exampleGrades = {"High Grade 1",
+                                    "High Grade 2",
+                                    "High Grade 3"};
+
+        ListView listView = root.findViewById(R.id.highGradesList);
+
+        ArrayAdapter<String> listViewAdapter = new ArrayAdapter<>(
+                getActivity(),
+                android.R.layout.simple_list_item_1,
+                exampleGrades
+        );
+
+        listView.setAdapter(listViewAdapter);
         return root;
     }
 }
