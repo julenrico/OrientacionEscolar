@@ -4,22 +4,27 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.orientacionescolar.DatabaseHelper;
 import com.example.orientacionescolar.R;
+import com.example.orientacionescolar.RecyclerAdapter;
 
 /**
  * A placeholder fragment containing a simple view.
  */
-public class DegreesFragment extends Fragment {
+public class DegreesFragment extends Fragment implements RecyclerAdapter.listItemClick{
 
+    private DatabaseHelper databaseHelper = new DatabaseHelper(getContext(),"dataBase",null,1);
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
     }
 
     @Override
@@ -28,20 +33,22 @@ public class DegreesFragment extends Fragment {
             Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_degrees, container, false);
 
-        String[] exampleGrades = {"University Degree 1",
-                                    "University Degree 2",
-                                    "University Degree 3"};
+        RecyclerView recyclerView = root.findViewById(R.id.recyclerView);
+        recyclerView.addItemDecoration(new DividerItemDecoration(getContext(),DividerItemDecoration.VERTICAL));
 
-        ListView listView = root.findViewById(R.id.universityDegreesList);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
+        recyclerView.setLayoutManager(linearLayoutManager);
 
-        ArrayAdapter<String> listViewAdapter = new ArrayAdapter<>(
-                getActivity(),
-                android.R.layout.simple_list_item_1,
-                exampleGrades
-        );
+        RecyclerAdapter adapter = new RecyclerAdapter(databaseHelper.getCountDegrees(),this);
 
-        listView.setAdapter(listViewAdapter);
+        recyclerView.setAdapter(adapter);
+
         return root;
     }
-    //TODO: LISTVIEWS AS GMAIL
+
+    @Override
+    public void onListItemClick(int clickedItem) {
+
+
+    }
 }

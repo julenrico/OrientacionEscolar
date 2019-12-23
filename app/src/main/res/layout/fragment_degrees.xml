@@ -10,9 +10,8 @@ android:layout_height="match_parent">
     android:gravity="center"
     android:text="Grados Universitarios" />
 
-<ListView
+<androidx.recyclerview.widget.RecyclerView
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/universityDegreesList"
-    android:layout_gravity="center_horizontal|top"/>
+    android:id="@+id/recyclerView"/>
 </LinearLayout>

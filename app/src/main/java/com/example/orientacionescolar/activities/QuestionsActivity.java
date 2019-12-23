@@ -75,21 +75,18 @@ public class QuestionsActivity extends AppCompatActivity implements View.OnTouch
 
     @Override
     public boolean onTouch(View v, MotionEvent event) {
-        if(event.getAction()==MotionEvent.ACTION_DOWN){
-            if (ta.textEnded()){
+        if (event.getAction() == MotionEvent.ACTION_DOWN) {
+            if (ta.textEnded()) {
                 v.performClick();
             }
             ta.setCharacterDelay(10);
             return true;
-        }
-        else if(event.getAction()==MotionEvent.ACTION_UP){
+        } else if (event.getAction() == MotionEvent.ACTION_UP) {
             ta.setCharacterDelay(50);
             return true;
         }
         return false;
     }
-
-    //TODO: USE FRAGMENTS AND ORDER THE CODE
 
     @Override
     public void onClick(View v) {
