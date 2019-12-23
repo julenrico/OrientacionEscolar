@@ -58,7 +58,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            app:srcCompat="@android:drawable/ic_dialog_email"
+            app:srcCompat="@drawable/ic_format_list_numbered_black_24dp"
             app:fabSize="mini"
             app:maxImageSize="24dp"
             app:backgroundTint="@color/colorAccent"/>
@@ -86,7 +86,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            app:srcCompat="@drawable/ic_icon_book"
+            app:srcCompat="@drawable/ic_search_black_24dp"
             app:fabSize="mini"
             app:maxImageSize="24dp"
             app:backgroundTint="@color/colorAccent"/>
@@ -115,7 +115,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            app:srcCompat="@drawable/ic_icon_book"
+            app:srcCompat="@drawable/ic_book_black_24dp"
             android:tint="@android:color/white"
             app:fabSize="mini"
             app:maxImageSize="24dp"
@@ -140,7 +140,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|end"
             android:gravity="center_vertical"
-            app:srcCompat="@drawable/ic_icon_book"
+            app:srcCompat="@drawable/ic_add"
             app:fabSize="normal"
             app:maxImageSize="36dp"
             app:backgroundTint="@color/colorPrimary"/>

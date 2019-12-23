@@ -14,6 +14,6 @@
     <string name="tab_text_2">SUPERIORES</string>
     <string name="tab_text_3">MEDIOS</string>
     <string name="fab_menu_1">Test</string>
-    <string name="fab_menu_2">Fab Title 2</string>
-    <string name="fab_menu_3">Fab Title 3</string>
+    <string name="fab_menu_2">Lista de grados</string>
+    <string name="fab_menu_3">Grados guardados</string>
 </resources>

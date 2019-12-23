@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.example.orientacionescolar.activities.ui.main.FragmentsAdapter;
 
@@ -59,6 +60,21 @@ public class InfoConsultingActivityVd extends AppCompatActivity {
                 closeFABMenu();
                 isFABOpen=false;
                 startActivity(new Intent(InfoConsultingActivityVd.this, QuestionsActivity.class));
+                Toast.makeText(InfoConsultingActivityVd.this, "Mantén pulsado para que el texto avance más rápido...", Toast.LENGTH_LONG).show();
+            }
+        });
+
+        fab2.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                closeFABMenu();
+            }
+        });
+
+        fab3.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                closeFABMenu();
             }
         });
 
@@ -76,7 +92,7 @@ public class InfoConsultingActivityVd extends AppCompatActivity {
         fabLayout2.setVisibility(View.VISIBLE);
         fabLayout3.setVisibility(View.VISIBLE);
         fabBGLayout.setVisibility(View.VISIBLE);
-        fab.animate().rotationBy(180);
+        fab.animate().rotationBy(45);
         fabLayout1.animate().translationY(-getResources().getDimension(R.dimen.standard_55));
         fabLayout2.animate().translationY(-getResources().getDimension(R.dimen.standard_100));
         fabLayout3.animate().translationY(-getResources().getDimension(R.dimen.standard_145));
@@ -103,9 +119,6 @@ public class InfoConsultingActivityVd extends AppCompatActivity {
                     fabLayout2.setVisibility(View.GONE);
                     fabLayout3.setVisibility(View.GONE);
                 }
-/*                if (fab.getRotation() != -180) {
-                    fab.setRotation(-180);
-                }*/
             }
 
             @Override
