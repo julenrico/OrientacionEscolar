@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.icu.text.IDNA;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -18,6 +20,7 @@ import com.synnapps.carouselview.ViewListener;
 public class MainActivity extends AppCompatActivity {
 
     CarouselView carouselView;
+    Animation carouselAnimation, btnAnim;
 
 
     @Override
@@ -28,13 +31,18 @@ public class MainActivity extends AppCompatActivity {
         carouselView = findViewById(R.id.carouselView);
         carouselView.setPageCount(3);
 
+        carouselAnimation = AnimationUtils.loadAnimation(this,R.anim.carousel_animation);
+        carouselView.startAnimation(carouselAnimation);
+
         carouselView.setFillColor(getResources().getColor(R.color.colorPrimary));
         carouselView.setStrokeColor(getResources().getColor(R.color.colorPrimaryDark));
+        btnAnim = AnimationUtils.loadAnimation(this,R.anim.button_animation);
         Button btnNext = findViewById(R.id.btnNext);
+        btnNext.startAnimation(btnAnim);
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, InfoConsultingActivityVd.class));
+                startActivity(new Intent(MainActivity.this, QuestionsActivity.class));
 
             }
         });
