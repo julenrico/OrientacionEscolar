@@ -7,6 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/colorPrimaryAccent"
     tools:context=".activities.MainActivity">
 
     <com.google.android.material.textfield.TextInputLayout
@@ -37,7 +38,7 @@
         android:layout_height="300dp"
         android:layout_marginTop="52dp"
         android:textAlignment="center"
-        android:textColor="@color/colorPrimary"
+        android:textColor="@color/txtColor"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -72,19 +73,19 @@
         style="@style/Widget.MaterialComponents.Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/colorPrimary"
+        android:backgroundTint="@color/colorSecondary"
         android:text="Confirmar"
         android:textAppearance="@style/TextAppearance.AppCompat.Button"
         android:textColor="@color/txtColor"
         android:visibility="invisible"
-        app:iconTint="@color/colorPrimary"
+        app:iconTint="@color/colorSecondary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtInputDate"
         app:layout_constraintVertical_bias="0.314"
-        app:rippleColor="@color/colorPrimary" />
+        app:rippleColor="@color/colorSecondaryAccent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

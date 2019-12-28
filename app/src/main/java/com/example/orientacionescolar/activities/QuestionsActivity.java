@@ -7,6 +7,8 @@ import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.TextView;
@@ -32,6 +34,8 @@ public class QuestionsActivity extends AppCompatActivity implements View.OnTouch
 
     ConstraintLayout l;
 
+    Animation carouselAnimation, btnAnim;
+
     int contSwitch=0;
     int contFinish=0;
 
@@ -53,6 +57,8 @@ public class QuestionsActivity extends AppCompatActivity implements View.OnTouch
         l.setOnClickListener(this);
         btnConfirmar.setOnClickListener(this);
         txtDate.setOnClickListener(this);
+        carouselAnimation = AnimationUtils.loadAnimation(this,R.anim.carousel_animation);
+        btnAnim = AnimationUtils.loadAnimation(this,R.anim.button_animation);
         ta.setListener(new TextAnimation.TextAnimationListener() {
             @Override
             public void onFinish() {
@@ -65,9 +71,13 @@ public class QuestionsActivity extends AppCompatActivity implements View.OnTouch
                         Toast.makeText(QuestionsActivity.this, "Pulsa 2 veces la pantalla para avanzar al final del texto...", Toast.LENGTH_SHORT).show();
                         break;
                     case 3:
+                        txtInputName.startAnimation(carouselAnimation);
+                        txtInputDate.startAnimation(carouselAnimation);
+                        btnConfirmar.startAnimation(btnAnim);
                         txtInputName.setVisibility(View.VISIBLE);
                         txtInputDate.setVisibility(View.VISIBLE);
                         btnConfirmar.setVisibility(View.VISIBLE);
+
                         break;
                     case 4:
 
@@ -119,6 +129,7 @@ public class QuestionsActivity extends AppCompatActivity implements View.OnTouch
     private void showDatePickerDialog() {
         DatePickerDialog datePickerDialog = new DatePickerDialog(
                 this,
+                R.style.MyDatePickerDialogTheme,
                 this,
                 Calendar.getInstance().get(Calendar.YEAR),
                 Calendar.getInstance().get(Calendar.MONTH),

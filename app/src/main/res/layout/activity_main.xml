@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.MainActivity">
+    tools:context=".activities.MainActivity"
+    android:background="@color/colorPrimaryAccent"
+    >
 
     <com.synnapps.carouselview.CarouselView
         android:id="@+id/carouselView"
@@ -29,18 +31,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="124dp"
-        android:backgroundTint="@color/colorPrimary"
+        android:backgroundTint="@color/colorSecondary"
         android:text="Siguiente"
         android:textAppearance="@style/TextAppearance.AppCompat.Button"
         android:textColor="@color/txtColor"
-        app:iconTint="@color/colorPrimary"
+        app:iconTint="@color/colorSecondary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/carouselView"
         app:layout_constraintVertical_bias="0.314"
-        app:rippleColor="@color/colorPrimary"/>
+        app:rippleColor="@color/colorSecondaryAccent"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
