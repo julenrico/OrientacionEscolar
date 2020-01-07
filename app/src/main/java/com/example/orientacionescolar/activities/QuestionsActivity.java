@@ -142,6 +142,7 @@ public class QuestionsActivity extends AppCompatActivity implements View.OnTouch
     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
         String date = dayOfMonth+"/"+month+"/"+year;
         txtDate.setText(date);
+        txtDate.clearFocus();
     }
     //TODO: MAKE DOUBLE CLICK EVENT
 
