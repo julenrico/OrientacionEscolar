@@ -9,17 +9,19 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.List;
+
 
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.NumerosViewHolder>{
 
     Context context;
-    private int numerosItems;
+    private List<UniversityDegree> universityDegrees;
 
     final private listItemClick listItemOnclickListener;
 
-    public RecyclerAdapter(int numeroDeItems, listItemClick listener){
+    public RecyclerAdapter(List<UniversityDegree> universityDegrees, listItemClick listener){
 
-        numerosItems=numeroDeItems;
+        this.universityDegrees=universityDegrees;
 
         listItemOnclickListener = listener;
     }
@@ -50,7 +52,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Numero
 
     @Override
     public int getItemCount() {
-        return numerosItems;
+        return universityDegrees.size();
     }
 
     class NumerosViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
@@ -73,12 +75,10 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Numero
 
         void bind(int listaIndex){
 
-            DatabaseHelper databaseHelper = new DatabaseHelper(context,"dataBase",null,1);
-
-            txtDegreeName.setText(databaseHelper.getUniversityDegrees().get(listaIndex).getDegreeName());
-            txtBranch.setText(databaseHelper.getUniversityDegreeBranches().get(listaIndex).getBranchName());
-            txtCampus.setText(databaseHelper.getUniversityDegreeCampus().get(listaIndex).getCampusName());
-            txtCenter.setText(databaseHelper.getUniversityDegreeCenters().get(listaIndex).getCenterName());
+            txtDegreeName.setText(universityDegrees.get(listaIndex).getDegreeName());
+            txtBranch.setText(universityDegrees.get(listaIndex).getBranch().getBranchName());
+            txtCampus.setText(universityDegrees.get(listaIndex).getCampus().getCampusName());
+            txtCenter.setText(universityDegrees.get(listaIndex).getCenter().getCenterName());
         }
 
         @Override

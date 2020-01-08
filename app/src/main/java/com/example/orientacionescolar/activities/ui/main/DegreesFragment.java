@@ -1,6 +1,7 @@
 package com.example.orientacionescolar.activities.ui.main;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.orientacionescolar.DatabaseHelper;
 import com.example.orientacionescolar.R;
 import com.example.orientacionescolar.RecyclerAdapter;
+import com.example.orientacionescolar.UniversityDegree;
+
+import java.util.ArrayList;
 
 /**
  * A placeholder fragment containing a simple view.
@@ -31,7 +35,7 @@ public class DegreesFragment extends Fragment implements RecyclerAdapter.listIte
     public View onCreateView(
             @NonNull LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
-        databaseHelper = new DatabaseHelper(getContext(),"dataBase",null,1);
+        databaseHelper = new DatabaseHelper(getContext());
         View root = inflater.inflate(R.layout.fragment_degrees, container, false);
 
         RecyclerView recyclerView = root.findViewById(R.id.recyclerView);
@@ -40,7 +44,11 @@ public class DegreesFragment extends Fragment implements RecyclerAdapter.listIte
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(linearLayoutManager);
 
-        RecyclerAdapter adapter = new RecyclerAdapter(databaseHelper.getCountDegrees(),this);
+        ArrayList<UniversityDegree> universityDegrees = databaseHelper.getUniversityDegrees();
+
+        universityDegrees.forEach(d-> Log.d("DEGREE",d.getDegreeName()));
+
+        RecyclerAdapter adapter = new RecyclerAdapter(universityDegrees,this);
 
         recyclerView.setAdapter(adapter);
 

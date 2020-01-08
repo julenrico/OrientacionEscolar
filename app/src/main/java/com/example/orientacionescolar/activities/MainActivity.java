@@ -2,6 +2,7 @@ package com.example.orientacionescolar.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.Manifest;
 import android.content.Intent;
 import android.database.Cursor;
 import android.icu.text.IDNA;
@@ -29,18 +30,10 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-         databaseHelper = new DatabaseHelper(this,"dataBase",null,1);
-         Cursor cursor = databaseHelper.getReadableDatabase().rawQuery("select * from university_degrees\n" +
-                 "    join university_center_degrees ucd on university_degrees.degree_id = ucd.degree_id\n" +
-                 "    join university_degree_branches udb on university_degrees.degree_branch = udb.branch_id\n" +
-                 "    join university_degree_centers udc on ucd.center_id = udc.center_id\n" +
-                 "    join university_degree_campus u on udc.center_campus = u.campus_id",null);
-         if(cursor.getCount()<1){
-             databaseHelper.loadDataFromApi();
-         }
-         Log.d("CHORIMALO",String.valueOf(cursor.getCount()));
 
         setContentView(R.layout.activity_main);
+
+        requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE},123);
 
         carouselView = findViewById(R.id.carouselView);
         carouselView.setPageCount(3);
