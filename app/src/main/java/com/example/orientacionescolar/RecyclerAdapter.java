@@ -36,9 +36,8 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Numero
         context = parent.getContext();
         int layoutIdListItem = R.layout.lista_view;
         LayoutInflater layoutInflater = LayoutInflater.from(context);
-        boolean attachToParentFast = false;
 
-        View view = layoutInflater.inflate(layoutIdListItem,parent,attachToParentFast);
+        View view = layoutInflater.inflate(layoutIdListItem,parent, false);
 
         return new NumerosViewHolder(view);
     }
@@ -76,10 +75,10 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Numero
 
             DatabaseHelper databaseHelper = new DatabaseHelper(context,"dataBase",null,1);
 
-            //txtDegreeName.setText();
+            txtDegreeName.setText(databaseHelper.getUniversityDegrees().get(listaIndex).getDegreeName());
             txtBranch.setText(databaseHelper.getUniversityDegreeBranches().get(listaIndex).getBranchName());
             txtCampus.setText(databaseHelper.getUniversityDegreeCampus().get(listaIndex).getCampusName());
-            //txtCenter.setText();
+            txtCenter.setText(databaseHelper.getUniversityDegreeCenters().get(listaIndex).getCenterName());
         }
 
         @Override

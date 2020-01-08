@@ -20,7 +20,7 @@ import com.example.orientacionescolar.RecyclerAdapter;
  */
 public class DegreesFragment extends Fragment implements RecyclerAdapter.listItemClick{
 
-    private DatabaseHelper databaseHelper = new DatabaseHelper(getContext(),"dataBase",null,1);
+    private DatabaseHelper databaseHelper;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +31,7 @@ public class DegreesFragment extends Fragment implements RecyclerAdapter.listIte
     public View onCreateView(
             @NonNull LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
+        databaseHelper = new DatabaseHelper(getContext(),"dataBase",null,1);
         View root = inflater.inflate(R.layout.fragment_degrees, container, false);
 
         RecyclerView recyclerView = root.findViewById(R.id.recyclerView);
