@@ -39,7 +39,6 @@ public class DegreesFragment extends Fragment implements RecyclerAdapter.listIte
         View root = inflater.inflate(R.layout.fragment_degrees, container, false);
 
         RecyclerView recyclerView = root.findViewById(R.id.recyclerView);
-        recyclerView.addItemDecoration(new DividerItemDecoration(getContext(),DividerItemDecoration.VERTICAL));
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(linearLayoutManager);

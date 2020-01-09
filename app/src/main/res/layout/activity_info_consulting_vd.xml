@@ -19,11 +19,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="?attr/colorAccent"
-            app:tabIndicatorColor="@color/txtColor"
+            app:tabIndicatorColor="@color/colorSecondaryDark"
             app:tabIndicatorGravity="bottom"
             app:tabIndicatorHeight="4dp"
-            app:tabSelectedTextColor="@color/txtColor"
-            app:tabTextAppearance="@style/TabText"/>
+            app:tabSelectedTextColor="@color/colorSecondaryDark"
+            app:tabTextAppearance="@style/TabText"
+            app:tabTextColor="@color/colorPrimary" />
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.viewpager.widget.ViewPager
