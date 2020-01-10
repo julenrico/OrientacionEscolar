@@ -65,41 +65,6 @@ public class DatabaseHelper extends SQLiteAssetHelper {
         return c.getCount();
     }
 
-    public ArrayList<UniversityDegreeBranch> getUniversityDegreeBranches(){
-
-        ArrayList<UniversityDegreeBranch> universityDegreeBranches = new ArrayList<>();
-        Cursor c = getReadableDatabase().rawQuery(GET_UNIVERSITY_DEGREES_BRANCHES,null);
-        c.moveToFirst();
-        for (int i = 0; i < c.getCount(); i++) {
-            universityDegreeBranches.add(new UniversityDegreeBranch(c.getInt(0),c.getString(1)));
-        }
-        return universityDegreeBranches;
-    }
-
-    public ArrayList<UniversityDegreeCampus> getUniversityDegreeCampus(){
-
-        ArrayList<UniversityDegreeCampus> universityDegreeCampus = new ArrayList<>();
-        Cursor c = getReadableDatabase().rawQuery(GET_UNIVERSITY_DEGREES_CAMPUS,null);
-        c.moveToFirst();
-
-        for (int i = 0; i < c.getCount(); i++) {
-            universityDegreeCampus.add(new UniversityDegreeCampus(c.getInt(0),c.getString(1)));
-        }
-        return universityDegreeCampus;
-    }
-
-    public ArrayList<UniversityDegreeCenter> getUniversityDegreeCenters(){
-
-        ArrayList<UniversityDegreeCenter> universityDegreeCenters = new ArrayList<>();
-        Cursor c = getReadableDatabase().rawQuery(GET_UNIVERSITY_DEGREES_CENTERS,null);
-        c.moveToFirst();
-        Cursor b = getReadableDatabase().rawQuery("SELECT * FROM university_degree_campus WHERE campus_id=?", new String[] {String.valueOf(c.getInt(2))});
-        b.moveToFirst();
-        for (int i = 0; i < c.getCount(); i++) {
-            universityDegreeCenters.add(new UniversityDegreeCenter(c.getInt(0), c.getString(1),new UniversityDegreeCampus(b.getInt(0),b.getString(1))));
-        }
-        return universityDegreeCenters;
-    }
 
     public ArrayList<UniversityDegree> getUniversityDegrees(){
 
@@ -108,11 +73,15 @@ public class DatabaseHelper extends SQLiteAssetHelper {
                 "    join university_center_degrees ucd on university_degrees.degree_id = ucd.degree_id" +
                 "    join university_degree_branches udb on university_degrees.degree_branch = udb.branch_id" +
                 "    join university_degree_centers udc on ucd.center_id = udc.center_id" +
-                "    join university_degree_campus u on udc.center_campus = u.campus_id",null);
+                "    join university_degree_campus u on udc.center_campus = u.campus_id order by degree_name asc",null);
         Log.d("CHORIPAN",String.valueOf(c.getCount()));
         c.moveToFirst();
         for (int i = 0; i < c.getCount(); i++) {
-            universityDegrees.add(new UniversityDegree(c.getInt(0),c.getString(1),new UniversityDegreeBranch(c.getInt(5),c.getString(6)),new UniversityDegreeCampus(c.getInt(9),c.getString(10)),new UniversityDegreeCenter(c.getInt(3),c.getString(8),new UniversityDegreeCampus(c.getInt(9),c.getString(10)))));
+            UniversityDegreeBranch branch = new UniversityDegreeBranch(c.getInt(5),c.getString(6));
+            UniversityDegreeCampus campus = new UniversityDegreeCampus(c.getInt(10),c.getString(11));
+            UniversityDegreeCenter center = new UniversityDegreeCenter(c.getInt(3),c.getString(8),campus);
+            universityDegrees.add(new UniversityDegree(c.getInt(0),c.getString(1),branch,campus,center));
+            c.moveToNext();
         }
 
         return universityDegrees;

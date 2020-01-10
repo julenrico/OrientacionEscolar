@@ -43,7 +43,7 @@
         android:id="@+id/fabLayout1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginRight="@dimen/standard_19"
+        android:layout_marginEnd="@dimen/standard_19"
         android:padding="@dimen/standard_12"
         android:clipToPadding="false"
         android:gravity="center_vertical"
@@ -54,13 +54,14 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/fab_menu_1"/>
+            android:text="@string/fab_menu_1"
+            android:background="@color/colorSecondary"/>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
             app:srcCompat="@drawable/ic_format_list_numbered_black_24dp"
             app:fabSize="mini"
             app:maxImageSize="24dp"
@@ -73,7 +74,7 @@
         android:layout_height="wrap_content"
         android:padding="@dimen/standard_12"
         android:clipToPadding="false"
-        android:layout_marginRight="@dimen/standard_19"
+        android:layout_marginEnd="@dimen/standard_19"
         android:gravity="center_vertical"
         android:layout_marginBottom="@dimen/standard_35"
         android:layout_gravity="bottom|end"
@@ -82,13 +83,14 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/fab_menu_2"/>
+            android:text="@string/fab_menu_2"
+            android:background="@color/colorSecondary"/>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
             app:srcCompat="@drawable/ic_search_black_24dp"
             app:fabSize="mini"
             app:maxImageSize="24dp"
@@ -102,7 +104,7 @@
         android:layout_height="wrap_content"
         android:padding="@dimen/standard_12"
         android:clipToPadding="false"
-        android:layout_marginRight="@dimen/standard_19"
+        android:layout_marginEnd="@dimen/standard_19"
         android:gravity="center_vertical"
         android:layout_marginBottom="@dimen/standard_40"
         android:layout_gravity="bottom|end"
@@ -111,13 +113,14 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/fab_menu_3"/>
+            android:text="@string/fab_menu_3"
+            android:background="@color/colorSecondary"/>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
             app:srcCompat="@drawable/ic_book_black_24dp"
             android:tint="@android:color/white"
             app:fabSize="mini"
@@ -129,7 +132,7 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginRight="@dimen/fab_margin"
+        android:layout_marginEnd="@dimen/fab_margin"
         android:gravity="center_vertical"
         android:clipToPadding="false"
         android:padding="@dimen/standard_12"

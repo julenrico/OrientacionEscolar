@@ -16,15 +16,18 @@ import com.example.orientacionescolar.DatabaseHelper;
 import com.example.orientacionescolar.R;
 import com.example.orientacionescolar.RecyclerAdapter;
 import com.example.orientacionescolar.UniversityDegree;
+import com.example.orientacionescolar.activities.InfoConsultingActivityVd;
+import com.like.LikeButton;
+import com.like.OnLikeListener;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 /**
  * A placeholder fragment containing a simple view.
  */
 public class DegreesFragment extends Fragment implements RecyclerAdapter.listItemClick{
 
-    private DatabaseHelper databaseHelper;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,9 +38,8 @@ public class DegreesFragment extends Fragment implements RecyclerAdapter.listIte
     public View onCreateView(
             @NonNull LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
-        databaseHelper = new DatabaseHelper(getContext());
+        DatabaseHelper databaseHelper = new DatabaseHelper(getContext());
         View root = inflater.inflate(R.layout.fragment_degrees, container, false);
-
         RecyclerView recyclerView = root.findViewById(R.id.recyclerView);
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
@@ -45,7 +47,7 @@ public class DegreesFragment extends Fragment implements RecyclerAdapter.listIte
 
         ArrayList<UniversityDegree> universityDegrees = databaseHelper.getUniversityDegrees();
 
-        universityDegrees.forEach(d-> Log.d("DEGREE",d.getDegreeName()));
+        universityDegrees.forEach(d-> Log.d("DEGREE",d.getCampus().getCampusName()));
 
         RecyclerAdapter adapter = new RecyclerAdapter(universityDegrees,this);
 

@@ -17,6 +17,8 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.example.orientacionescolar.activities.ui.main.FragmentsAdapter;
+import com.like.LikeButton;
+import com.like.OnLikeListener;
 
 public class InfoConsultingActivityVd extends AppCompatActivity {
 
@@ -43,47 +45,26 @@ public class InfoConsultingActivityVd extends AppCompatActivity {
         fab3 =  findViewById(R.id.fab3);
         fabBGLayout = findViewById(R.id.fabBGLayout);
 
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (!isFABOpen) {
-                    showFABMenu();
-                } else {
-                    closeFABMenu();
-                }
-            }
-        });
-
-        fab1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                closeFABMenu();
-                isFABOpen=false;
-                startActivity(new Intent(InfoConsultingActivityVd.this, QuestionsActivity.class));
-                Toast.makeText(InfoConsultingActivityVd.this, "Mantén pulsado para que el texto avance más rápido...", Toast.LENGTH_LONG).show();
-            }
-        });
-
-        fab2.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view) {
+        fab.setOnClickListener(view -> {
+            if (!isFABOpen) {
+                showFABMenu();
+            } else {
                 closeFABMenu();
             }
         });
 
-        fab3.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view) {
-                closeFABMenu();
-            }
+        fab1.setOnClickListener(view -> {
+            closeFABMenu();
+            isFABOpen=false;
+            startActivity(new Intent(InfoConsultingActivityVd.this, QuestionsActivity.class));
+            Toast.makeText(InfoConsultingActivityVd.this, "Mantén pulsado para que el texto avance más rápido...", Toast.LENGTH_LONG).show();
         });
 
-        fabBGLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                closeFABMenu();
-            }
-        });
+        fab2.setOnClickListener(view -> closeFABMenu());
+
+        fab3.setOnClickListener(view -> closeFABMenu());
+
+        fabBGLayout.setOnClickListener(view -> closeFABMenu());
     }
 
     private void showFABMenu() {
@@ -141,4 +122,6 @@ public class InfoConsultingActivityVd extends AppCompatActivity {
             super.onBackPressed();
         }
     }
+
+
 }

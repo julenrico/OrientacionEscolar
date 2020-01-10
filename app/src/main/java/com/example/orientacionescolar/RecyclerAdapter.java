@@ -7,7 +7,11 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.like.LikeButton;
+import com.like.OnLikeListener;
 
 import java.util.List;
 
@@ -18,6 +22,8 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Numero
     private List<UniversityDegree> universityDegrees;
 
     final private listItemClick listItemOnclickListener;
+
+    LikeButton likeButton;
 
     public RecyclerAdapter(List<UniversityDegree> universityDegrees, listItemClick listener){
 
@@ -40,7 +46,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Numero
         LayoutInflater layoutInflater = LayoutInflater.from(context);
 
         View view = layoutInflater.inflate(layoutIdListItem,parent, false);
-
+        likeButton =view.findViewById(R.id.heart_button);
         return new NumerosViewHolder(view);
     }
 
@@ -79,6 +85,17 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Numero
             txtBranch.setText(universityDegrees.get(listaIndex).getBranch().getBranchName());
             txtCampus.setText(universityDegrees.get(listaIndex).getCampus().getCampusName());
             txtCenter.setText(universityDegrees.get(listaIndex).getCenter().getCenterName());
+            likeButton.setOnLikeListener(new OnLikeListener() {
+                @Override
+                public void liked(LikeButton likeButton) {
+                    //ADD TO FAV
+                }
+
+                @Override
+                public void unLiked(LikeButton likeButton) {
+                    //QUIT FROM FAV
+                }
+            });
         }
 
         @Override
