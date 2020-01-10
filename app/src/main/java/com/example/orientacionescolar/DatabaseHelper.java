@@ -54,7 +54,39 @@ public class DatabaseHelper extends SQLiteAssetHelper {
 
     public void insertCenterDegrees(SQLiteDatabase db, int centerId, int degreeId){
 
-        db.execSQL("INSERT INTO university_center_degrees (center_Id, degree_Id) VALUES (?,?)",new String [] {String.valueOf(degreeId),String.valueOf(degreeId)});
+        db.execSQL("INSERT INTO university_center_degrees (center_Id, degree_Id) VALUES (?,?)",new String [] {String.valueOf(centerId),String.valueOf(degreeId)});
+    }
+
+    public void insertToFav(UniversityDegree universityDegree){
+        getWritableDatabase().execSQL("INSERT INTO fav_university_degrees (degree_Id, center_Id) VALUES (?,?)", new String [] {String.valueOf(universityDegree.getDegreeId()), String.valueOf(universityDegree.getCenter().getCenterId())});
+    }
+
+    public void deleteFromFav(UniversityDegree universityDegree){
+        getWritableDatabase().execSQL("DELETE FROM fav_university_degrees WHERE degreeId = ?", new String [] {String.valueOf(universityDegree.getDegreeId())});
+    }
+
+    public ArrayList<UniversityDegree> getFavUniversityDegrees(){
+
+        ArrayList<UniversityDegree> favUniversityDegrees = new ArrayList<>();
+        Cursor c = getReadableDatabase().rawQuery("select * from university_degrees" +
+                "    join university_center_degrees ucd on university_degrees.degree_id = ucd.degree_id" +
+                "    join university_degree_branches udb on university_degrees.degree_branch = udb.branch_id" +
+                "    join university_degree_centers udc on ucd.center_id = udc.center_id" +
+                "    join university_degree_campus u on udc.center_campus = u.campus_id" +
+                "    join fav_university_degrees fad on university_degrees.degree_id = fad.degree_id" +
+                "    where university_degrees.degree_id = fad.degree_id and ucd.center_id = fad.center_id" +
+                " order by degree_name asc",null);
+        Log.d("CHORIPAN",String.valueOf(c.getCount()));
+        c.moveToFirst();
+        for (int i = 0; i < c.getCount(); i++) {
+            UniversityDegreeBranch branch = new UniversityDegreeBranch(c.getInt(5),c.getString(6));
+            UniversityDegreeCampus campus = new UniversityDegreeCampus(c.getInt(10),c.getString(11));
+            UniversityDegreeCenter center = new UniversityDegreeCenter(c.getInt(3),c.getString(8),campus);
+            favUniversityDegrees.add(new UniversityDegree(c.getInt(0),c.getString(1),branch,campus,center));
+            c.moveToNext();
+        }
+
+        return favUniversityDegrees;
     }
 
     public int getCountDegrees(){

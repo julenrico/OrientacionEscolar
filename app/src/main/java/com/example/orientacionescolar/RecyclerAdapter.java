@@ -7,7 +7,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.like.LikeButton;
@@ -25,11 +24,16 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Numero
 
     LikeButton likeButton;
 
-    public RecyclerAdapter(List<UniversityDegree> universityDegrees, listItemClick listener){
+    DatabaseHelper databaseHelper;
+
+    public RecyclerAdapter(List<UniversityDegree> universityDegrees, listItemClick listener, Context context){
 
         this.universityDegrees=universityDegrees;
+        this.context=context;
 
         listItemOnclickListener = listener;
+
+        databaseHelper = new DatabaseHelper(context);
     }
 
     public interface listItemClick{
@@ -89,11 +93,13 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Numero
                 @Override
                 public void liked(LikeButton likeButton) {
                     //ADD TO FAV
+                    databaseHelper.insertToFav(universityDegrees.get(listaIndex));
                 }
 
                 @Override
                 public void unLiked(LikeButton likeButton) {
                     //QUIT FROM FAV
+                    databaseHelper.deleteFromFav(universityDegrees.get(listaIndex));
                 }
             });
         }

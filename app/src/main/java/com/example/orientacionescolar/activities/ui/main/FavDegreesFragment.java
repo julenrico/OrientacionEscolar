@@ -24,7 +24,7 @@ import java.util.ArrayList;
 /**
  * A placeholder fragment containing a simple view.
  */
-public class DegreesFragment extends Fragment implements RecyclerAdapter.listItemClick{
+public class FavDegreesFragment extends Fragment implements RecyclerAdapter.listItemClick{
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -43,7 +43,7 @@ public class DegreesFragment extends Fragment implements RecyclerAdapter.listIte
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(linearLayoutManager);
 
-        ArrayList<UniversityDegree> universityDegrees = databaseHelper.getUniversityDegrees();
+        ArrayList<UniversityDegree> universityDegrees = databaseHelper.getFavUniversityDegrees();
 
         universityDegrees.forEach(d-> Log.d("DEGREE",d.getCampus().getCampusName()));
 

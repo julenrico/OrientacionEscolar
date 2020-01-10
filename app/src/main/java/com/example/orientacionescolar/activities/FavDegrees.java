@@ -13,9 +13,8 @@ import androidx.viewpager.widget.ViewPager;
 import com.example.orientacionescolar.R;
 import com.example.orientacionescolar.activities.ui.main.FragmentsAdapter;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.tabs.TabLayout;
 
-public class InfoConsultingActivityVd extends AppCompatActivity {
+public class FavDegrees extends AppCompatActivity {
 
     FloatingActionButton fab, fab1, fab2, fab3;
     LinearLayout fabLayout1, fabLayout2, fabLayout3;
@@ -24,12 +23,10 @@ public class InfoConsultingActivityVd extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_info_consulting_vd);
+        setContentView(R.layout.activity_fav_degrees);
         FragmentsAdapter fragmentsAdapter = new FragmentsAdapter(this, getSupportFragmentManager());
         ViewPager viewPager = findViewById(R.id.view_pager);
         viewPager.setAdapter(fragmentsAdapter);
-        TabLayout tabs = findViewById(R.id.tabs);
-        tabs.setupWithViewPager(viewPager);
 
         fabLayout1 =  findViewById(R.id.fabLayout1);
         fabLayout2 =  findViewById(R.id.fabLayout2);
@@ -51,18 +48,17 @@ public class InfoConsultingActivityVd extends AppCompatActivity {
         fab1.setOnClickListener(view -> {
             closeFABMenu();
             isFABOpen=false;
-            startActivity(new Intent(InfoConsultingActivityVd.this, QuestionsActivity.class));
-            Toast.makeText(InfoConsultingActivityVd.this, "Mantén pulsado para que el texto avance más rápido...", Toast.LENGTH_LONG).show();
+            startActivity(new Intent(FavDegrees.this, QuestionsActivity.class));
+            Toast.makeText(FavDegrees.this, "Mantén pulsado para que el texto avance más rápido...", Toast.LENGTH_LONG).show();
         });
 
-        fab2.setOnClickListener(view -> closeFABMenu());
-
-        fab3.setOnClickListener(view ->{
+        fab2.setOnClickListener(view ->{
             closeFABMenu();
             isFABOpen=false;
-            startActivity(new Intent(InfoConsultingActivityVd.this, FavDegrees.class));
+            startActivity(new Intent(FavDegrees.this, InfoConsultingActivityVd.class));
         });
 
+        fab3.setOnClickListener(view -> closeFABMenu());
 
         fabBGLayout.setOnClickListener(view -> closeFABMenu());
     }
@@ -122,6 +118,5 @@ public class InfoConsultingActivityVd extends AppCompatActivity {
             super.onBackPressed();
         }
     }
-
 
 }
