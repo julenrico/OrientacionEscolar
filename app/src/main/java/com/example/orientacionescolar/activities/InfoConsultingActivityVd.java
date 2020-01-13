@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
@@ -52,7 +51,7 @@ public class InfoConsultingActivityVd extends AppCompatActivity {
             closeFABMenu();
             isFABOpen=false;
             startActivity(new Intent(InfoConsultingActivityVd.this, QuestionsActivity.class));
-            Toast.makeText(InfoConsultingActivityVd.this, "Mantén pulsado para que el texto avance más rápido...", Toast.LENGTH_LONG).show();
+            //Toast.makeText(InfoConsultingActivityVd.this, "Mantén pulsado para que el texto avance más rápido...", Toast.LENGTH_LONG).show();
         });
 
         fab2.setOnClickListener(view -> {

@@ -1,8 +1,5 @@
 package com.example.orientacionescolar.activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
-
 import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.view.MotionEvent;
@@ -12,7 +9,9 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.example.orientacionescolar.R;
 import com.example.orientacionescolar.TextAnimation;
@@ -65,10 +64,10 @@ public class QuestionsActivity extends AppCompatActivity implements View.OnTouch
                 contFinish++;
                 switch (contFinish){
                     case 1:
-                        Toast.makeText(QuestionsActivity.this, "Pulsa la pantalla para continuar...", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(QuestionsActivity.this, "Pulsa la pantalla para continuar...", Toast.LENGTH_SHORT).show();
                         break;
                     case 2:
-                        Toast.makeText(QuestionsActivity.this, "Pulsa 2 veces la pantalla para avanzar al final del texto...", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(QuestionsActivity.this, "Pulsa 2 veces la pantalla para avanzar al final del texto...", Toast.LENGTH_SHORT).show();
                         break;
                     case 3:
                         txtInputName.startAnimation(carouselAnimation);
