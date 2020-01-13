@@ -28,7 +28,6 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Numero
 
     private ArrayList<UniversityDegree> universityDegreesFav;
 
-
     public RecyclerAdapter(List<UniversityDegree> universityDegrees, listItemClick listener, Context context) {
 
         this.universityDegrees = universityDegrees;
@@ -116,7 +115,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Numero
                     databaseHelper.deleteFromFav(universityDegrees.get(listaIndex));
                     universityDegreesFav = databaseHelper.getFavUniversityDegrees();
                     Toast.makeText(context, "Eliminado de \'Grados guardados\'.", Toast.LENGTH_SHORT).show();
-                    notifyItemRemoved(listaIndex);
+                    notifyDataSetChanged();
 
                 }
             });
