@@ -14,7 +14,6 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".activities.FavDegrees"></activity>
         <activity
             android:name=".activities.InfoConsultingActivityVd"
             android:label="@string/title_activity_info_consulting_vd"

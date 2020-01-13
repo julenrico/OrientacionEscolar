@@ -1,5 +1,7 @@
 package com.example.orientacionescolar;
 
+import androidx.annotation.Nullable;
+
 public class UniversityDegree {
 
     private int degreeId;
@@ -54,5 +56,11 @@ public class UniversityDegree {
         this.branch = branch;
         this.campus = campus;
         this.center = center;
+    }
+
+    @Override
+    public boolean equals(@Nullable Object obj) {
+        UniversityDegree comparison = ((UniversityDegree)obj);
+        return this.degreeName.equalsIgnoreCase(comparison.getDegreeName()) && this.center.equals(comparison.center);
     }
 }

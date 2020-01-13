@@ -1,5 +1,7 @@
 package com.example.orientacionescolar;
 
+import androidx.annotation.Nullable;
+
 public class UniversityDegreeCenter {
 
     private int centerId;
@@ -34,5 +36,12 @@ public class UniversityDegreeCenter {
         this.centerId = centerId;
         this.centerName = centerName;
         this.campus = campus;
+    }
+
+    @Override
+    public boolean equals(@Nullable Object obj) {
+        UniversityDegreeCenter comparison = (UniversityDegreeCenter)obj;
+
+        return this.getCenterId() == comparison.getCenterId();
     }
 }

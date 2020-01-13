@@ -62,7 +62,7 @@ public class DatabaseHelper extends SQLiteAssetHelper {
     }
 
     public void deleteFromFav(UniversityDegree universityDegree){
-        getWritableDatabase().execSQL("DELETE FROM fav_university_degrees WHERE degreeId = ?", new String [] {String.valueOf(universityDegree.getDegreeId())});
+        getWritableDatabase().execSQL("DELETE FROM fav_university_degrees WHERE degree_Id = ? and center_Id=?", new String [] {String.valueOf(universityDegree.getDegreeId()), String.valueOf(universityDegree.getCenter().getCenterId())});
     }
 
     public ArrayList<UniversityDegree> getFavUniversityDegrees(){

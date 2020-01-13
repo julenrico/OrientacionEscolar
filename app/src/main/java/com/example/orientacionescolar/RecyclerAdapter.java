@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -12,31 +13,35 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.like.LikeButton;
 import com.like.OnLikeListener;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
-public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.NumerosViewHolder>{
+public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.NumerosViewHolder> {
 
     Context context;
-    private List<UniversityDegree> universityDegrees;
+    public List<UniversityDegree> universityDegrees;
 
     final private listItemClick listItemOnclickListener;
 
-    LikeButton likeButton;
-
     DatabaseHelper databaseHelper;
 
-    public RecyclerAdapter(List<UniversityDegree> universityDegrees, listItemClick listener, Context context){
+    private ArrayList<UniversityDegree> universityDegreesFav;
 
-        this.universityDegrees=universityDegrees;
-        this.context=context;
+
+    public RecyclerAdapter(List<UniversityDegree> universityDegrees, listItemClick listener, Context context) {
+
+        this.universityDegrees = universityDegrees;
+        this.context = context;
 
         listItemOnclickListener = listener;
 
         databaseHelper = new DatabaseHelper(context);
+
+        universityDegreesFav = databaseHelper.getFavUniversityDegrees();
     }
 
-    public interface listItemClick{
+    public interface listItemClick {
 
         void onListItemClick(int clickedItem);
     }
@@ -49,8 +54,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Numero
         int layoutIdListItem = R.layout.lista_view;
         LayoutInflater layoutInflater = LayoutInflater.from(context);
 
-        View view = layoutInflater.inflate(layoutIdListItem,parent, false);
-        likeButton =view.findViewById(R.id.heart_button);
+        View view = layoutInflater.inflate(layoutIdListItem, parent, false);
         return new NumerosViewHolder(view);
     }
 
@@ -65,41 +69,55 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Numero
         return universityDegrees.size();
     }
 
-    class NumerosViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+    class NumerosViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         TextView txtDegreeName;
         TextView txtBranch;
         TextView txtCampus;
         TextView txtCenter;
+        LikeButton likeButton;
 
-        public NumerosViewHolder(View itemView){
+        public NumerosViewHolder(View itemView) {
             super(itemView);
 
             txtBranch = itemView.findViewById(R.id.txtBranch);
             txtDegreeName = itemView.findViewById(R.id.txtDegreeName);
             txtCampus = itemView.findViewById(R.id.txtCampus);
             txtCenter = itemView.findViewById(R.id.txtCenter);
+            likeButton = itemView.findViewById(R.id.heart_button);
 
             itemView.setOnClickListener(this);
         }
 
-        void bind(int listaIndex){
+        void bind(int listaIndex) {
 
-            txtDegreeName.setText(universityDegrees.get(listaIndex).getDegreeName());
-            txtBranch.setText(universityDegrees.get(listaIndex).getBranch().getBranchName());
-            txtCampus.setText(universityDegrees.get(listaIndex).getCampus().getCampusName());
-            txtCenter.setText(universityDegrees.get(listaIndex).getCenter().getCenterName());
+            UniversityDegree degree = universityDegrees.get(listaIndex);
+
+            txtDegreeName.setText(degree.getDegreeName());
+            txtBranch.setText(degree.getBranch().getBranchName());
+            txtCampus.setText(degree.getCampus().getCampusName());
+            txtCenter.setText(degree.getCenter().getCenterName());
+
+            likeButton.setLiked(universityDegreesFav.contains(degree));
+
             likeButton.setOnLikeListener(new OnLikeListener() {
                 @Override
                 public void liked(LikeButton likeButton) {
                     //ADD TO FAV
                     databaseHelper.insertToFav(universityDegrees.get(listaIndex));
+                    universityDegreesFav = databaseHelper.getFavUniversityDegrees();
+                    Toast.makeText(context, "Agregado a \'Grados guardados\'.", Toast.LENGTH_SHORT).show();
+                    notifyDataSetChanged();
                 }
 
                 @Override
                 public void unLiked(LikeButton likeButton) {
                     //QUIT FROM FAV
                     databaseHelper.deleteFromFav(universityDegrees.get(listaIndex));
+                    universityDegreesFav = databaseHelper.getFavUniversityDegrees();
+                    Toast.makeText(context, "Eliminado de \'Grados guardados\'.", Toast.LENGTH_SHORT).show();
+                    notifyItemRemoved(listaIndex);
+
                 }
             });
         }

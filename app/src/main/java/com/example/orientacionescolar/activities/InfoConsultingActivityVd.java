@@ -20,7 +20,7 @@ public class InfoConsultingActivityVd extends AppCompatActivity {
     FloatingActionButton fab, fab1, fab2, fab3;
     LinearLayout fabLayout1, fabLayout2, fabLayout3;
     View fabBGLayout;
-    boolean isFABOpen = false;
+    boolean isFABOpen;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,12 +55,16 @@ public class InfoConsultingActivityVd extends AppCompatActivity {
             Toast.makeText(InfoConsultingActivityVd.this, "Mantén pulsado para que el texto avance más rápido...", Toast.LENGTH_LONG).show();
         });
 
-        fab2.setOnClickListener(view -> closeFABMenu());
+        fab2.setOnClickListener(view -> {
+            fragmentsAdapter.setFav(false);
+            closeFABMenu();
+            isFABOpen=false;
+        });
 
         fab3.setOnClickListener(view ->{
             closeFABMenu();
             isFABOpen=false;
-            startActivity(new Intent(InfoConsultingActivityVd.this, FavDegrees.class));
+            fragmentsAdapter.setFav(true);
         });
 
 

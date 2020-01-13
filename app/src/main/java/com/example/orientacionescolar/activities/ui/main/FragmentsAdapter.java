@@ -10,15 +10,15 @@ import androidx.fragment.app.FragmentPagerAdapter;
 
 import com.example.orientacionescolar.R;
 
-/**
- * A [FragmentPagerAdapter] that returns a fragment corresponding to
- * one of the sections/tabs/pages.
- */
 public class FragmentsAdapter extends FragmentPagerAdapter {
 
     @StringRes
     private static final int[] TAB_TITLES = new int[]{R.string.tab_text_1, R.string.tab_text_2, R.string.tab_text_3};
     private final Context mContext;
+
+    private DegreesFragment degreesFragment;
+    private HighGradesFragment highGradesFragment;
+    private MediumGradesAdapter mediumGradesAdapter;
 
     public FragmentsAdapter(Context context, FragmentManager fm) {
         super(fm);
@@ -30,13 +30,13 @@ public class FragmentsAdapter extends FragmentPagerAdapter {
 
         switch (position){
             case 0:
-                DegreesFragment degreesFragment = new DegreesFragment();
+                degreesFragment = new DegreesFragment();
                 return degreesFragment;
             case 1:
-                HighGradesFragment highGradesFragment = new HighGradesFragment();
+                highGradesFragment = new HighGradesFragment();
                 return highGradesFragment;
             case 2:
-                MediumGradesAdapter mediumGradesAdapter = new MediumGradesAdapter();
+                mediumGradesAdapter = new MediumGradesAdapter();
                 return mediumGradesAdapter;
             default:
                 return null;
@@ -53,5 +53,9 @@ public class FragmentsAdapter extends FragmentPagerAdapter {
     public int getCount() {
         // Show 3 total pages.
         return 3;
+    }
+
+    public void setFav(boolean fav) {
+        degreesFragment.setFav(fav);
     }
 }
