@@ -2,17 +2,22 @@ package com.example.orientacionescolar.activities;
 
 import android.animation.Animator;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.orientacionescolar.R;
 import com.example.orientacionescolar.activities.ui.main.FragmentsAdapter;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
+import com.wajahatkarim3.easyflipviewpager.BookFlipPageTransformer;
 
 public class InfoConsultingActivityVd extends AppCompatActivity {
 
@@ -30,6 +35,12 @@ public class InfoConsultingActivityVd extends AppCompatActivity {
         TabLayout tabs = findViewById(R.id.tabs);
         tabs.setupWithViewPager(viewPager);
 
+        //BOOK LIKE ANIMATION
+        /*BookFlipPageTransformer bookFlipPageTransformer = new BookFlipPageTransformer();
+        bookFlipPageTransformer.setEnableScale(true);
+        bookFlipPageTransformer.setScaleAmountPercent(10f);
+        viewPager.setPageTransformer(true, bookFlipPageTransformer);*/
+
         fabLayout1 =  findViewById(R.id.fabLayout1);
         fabLayout2 =  findViewById(R.id.fabLayout2);
         fabLayout3 =  findViewById(R.id.fabLayout3);
@@ -38,7 +49,6 @@ public class InfoConsultingActivityVd extends AppCompatActivity {
         fab2 =  findViewById(R.id.fab2);
         fab3 =  findViewById(R.id.fab3);
         fabBGLayout = findViewById(R.id.fabBGLayout);
-
         fab.setOnClickListener(view -> {
             if (!isFABOpen) {
                 showFABMenu();
@@ -80,6 +90,7 @@ public class InfoConsultingActivityVd extends AppCompatActivity {
         fabLayout1.animate().translationY(-getResources().getDimension(R.dimen.standard_55));
         fabLayout2.animate().translationY(-getResources().getDimension(R.dimen.standard_100));
         fabLayout3.animate().translationY(-getResources().getDimension(R.dimen.standard_145));
+        fabBGLayout.setBackgroundColor(Color.argb(170,98, 115, 120));
     }
 
     private void closeFABMenu() {

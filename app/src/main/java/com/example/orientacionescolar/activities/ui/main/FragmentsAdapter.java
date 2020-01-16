@@ -20,6 +20,8 @@ public class FragmentsAdapter extends FragmentPagerAdapter {
     private HighGradesFragment highGradesFragment;
     private MediumGradesAdapter mediumGradesAdapter;
 
+
+
     public FragmentsAdapter(Context context, FragmentManager fm) {
         super(fm);
         mContext = context;
