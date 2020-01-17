@@ -5,19 +5,15 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.orientacionescolar.R;
 import com.example.orientacionescolar.activities.ui.main.FragmentsAdapter;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
-import com.wajahatkarim3.easyflipviewpager.BookFlipPageTransformer;
 
 public class InfoConsultingActivityVd extends AppCompatActivity {
 
@@ -25,6 +21,7 @@ public class InfoConsultingActivityVd extends AppCompatActivity {
     LinearLayout fabLayout1, fabLayout2, fabLayout3;
     View fabBGLayout;
     boolean isFABOpen;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

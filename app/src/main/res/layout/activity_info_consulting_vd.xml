@@ -14,20 +14,20 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/AppTheme.AppBarOverlay"
-        android:backgroundTint="@color/colorPrimary">
+        android:backgroundTint="@color/colorPrimaryDark">
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tabs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="?attr/colorAccent"
+            android:background="@color/colorPrimaryDark"
+            app:layout_scrollFlags="scroll|enterAlways|snap"
             app:tabIndicatorColor="@color/colorSecondaryDark"
             app:tabIndicatorGravity="bottom"
             app:tabIndicatorHeight="4dp"
             app:tabSelectedTextColor="@color/colorSecondaryDark"
             app:tabTextAppearance="@style/TabText"
-            app:tabTextColor="@color/colorPrimary"
-            app:layout_scrollFlags="scroll|enterAlways|snap" />
+            app:tabTextColor="@color/colorPrimaryAccent" />
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.viewpager.widget.ViewPager

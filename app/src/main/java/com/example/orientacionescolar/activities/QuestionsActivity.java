@@ -58,30 +58,27 @@ public class QuestionsActivity extends AppCompatActivity implements View.OnTouch
         txtDate.setOnClickListener(this);
         carouselAnimation = AnimationUtils.loadAnimation(this,R.anim.carousel_animation);
         btnAnim = AnimationUtils.loadAnimation(this,R.anim.button_animation);
-        ta.setListener(new TextAnimation.TextAnimationListener() {
-            @Override
-            public void onFinish() {
-                contFinish++;
-                switch (contFinish){
-                    case 1:
-                        //Toast.makeText(QuestionsActivity.this, "Pulsa la pantalla para continuar...", Toast.LENGTH_SHORT).show();
-                        break;
-                    case 2:
-                        //Toast.makeText(QuestionsActivity.this, "Pulsa 2 veces la pantalla para avanzar al final del texto...", Toast.LENGTH_SHORT).show();
-                        break;
-                    case 3:
-                        txtInputName.startAnimation(carouselAnimation);
-                        txtInputDate.startAnimation(carouselAnimation);
-                        btnConfirmar.startAnimation(btnAnim);
-                        txtInputName.setVisibility(View.VISIBLE);
-                        txtInputDate.setVisibility(View.VISIBLE);
-                        btnConfirmar.setVisibility(View.VISIBLE);
+        ta.setListener(() -> {
+            contFinish++;
+            switch (contFinish){
+                case 1:
 
-                        break;
-                    case 4:
+                    break;
+                case 2:
 
-                        break;
-                }
+                    break;
+                case 3:
+                    txtInputName.startAnimation(carouselAnimation);
+                    txtInputDate.startAnimation(carouselAnimation);
+                    btnConfirmar.startAnimation(btnAnim);
+                    txtInputName.setVisibility(View.VISIBLE);
+                    txtInputDate.setVisibility(View.VISIBLE);
+                    btnConfirmar.setVisibility(View.VISIBLE);
+
+                    break;
+                case 4:
+
+                    break;
             }
         });
     }

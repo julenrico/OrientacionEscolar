@@ -37,7 +37,7 @@
     </style>
 
     <style name="MyDatePickerDialogTheme" parent="android:Theme.Material.Light.Dialog">
-        <item name="android:colorAccent">@color/colorSecondary</item>
+        <item name="android:colorAccent">@color/colorPrimaryAccent</item>
     </style>
 
 </resources>
