@@ -15,5 +15,5 @@
     <string name="tab_text_3">MEDIOS</string>
     <string name="fab_menu_1">Test</string>
     <string name="fab_menu_2">Lista de grados</string>
-    <string name="fab_menu_3">Grados guardados</string>
+    <string name="fab_menu_3">Grados Favoritos</string>
 </resources>

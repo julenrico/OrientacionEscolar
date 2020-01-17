@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/buttonEngineering"
+        android:layout_width="115dp"
+        android:layout_height="115dp"
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/ic_engineering"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonScience" />
+
+    <Button
+        android:id="@+id/buttonLaw"
+        android:layout_width="115dp"
+        android:layout_height="115dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="70dp"
+        android:background="@drawable/ic_laws"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonHealth" />
+
+    <Button
+        android:id="@+id/buttonHealth"
+        android:layout_width="115dp"
+        android:layout_height="115dp"
+        android:layout_marginTop="148dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/ic_health"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttonScience"
+        android:layout_width="115dp"
+        android:layout_height="115dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="148dp"
+        android:layout_marginEnd="30dp"
+        android:background="@drawable/ic_science"
+        app:layout_constraintEnd_toStartOf="@+id/buttonHealth"
+        app:layout_constraintStart_toEndOf="@+id/buttonArt"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttonArt"
+        android:layout_width="115dp"
+        android:layout_height="115dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="148dp"
+        android:background="@drawable/ic_art"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -8,10 +8,12 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.fragment.app.Fragment;
 
 import com.example.orientacionescolar.R;
 import com.example.orientacionescolar.TextAnimation;
@@ -21,15 +23,19 @@ import java.util.Calendar;
 
 public class QuestionsActivity extends AppCompatActivity implements View.OnTouchListener, View.OnClickListener, DatePickerDialog.OnDateSetListener {
 
+    //MOVED TO ANOTHER LAYOUT
     Button btnConfirmar;
+    TextView txtName;
+    TextInputLayout txtInputName;
+    TextInputLayout txtInputDate;
 
     TextView txtDate;
-    TextView txtName;
+
 
     TextAnimation ta;
 
-    TextInputLayout txtInputName;
-    TextInputLayout txtInputDate;
+
+
 
     ConstraintLayout l;
 
@@ -42,11 +48,16 @@ public class QuestionsActivity extends AppCompatActivity implements View.OnTouch
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_generic_questions);
-        btnConfirmar=findViewById(R.id.btnConfirmar);
+
+                //MOVED TO ANOTHER LAYOUT
+        /*btnConfirmar=findViewById(R.id.btnConfirmar);
         txtName=findViewById(R.id.txtName);
         txtDate=findViewById(R.id.txtDate);
         txtInputName=findViewById(R.id.txtInputName);
         txtInputDate=findViewById(R.id.txtInputDate);
+        btnConfirmar.setOnClickListener(this);
+        txtDate.setOnClickListener(this);*/
+
         ta = findViewById(R.id.tv);
         ta.setText("");
         ta.setCharacterDelay(50);
@@ -54,8 +65,7 @@ public class QuestionsActivity extends AppCompatActivity implements View.OnTouch
         l = findViewById(R.id.root);
         l.setOnTouchListener(this);
         l.setOnClickListener(this);
-        btnConfirmar.setOnClickListener(this);
-        txtDate.setOnClickListener(this);
+
         carouselAnimation = AnimationUtils.loadAnimation(this,R.anim.carousel_animation);
         btnAnim = AnimationUtils.loadAnimation(this,R.anim.button_animation);
         ta.setListener(() -> {
@@ -68,12 +78,13 @@ public class QuestionsActivity extends AppCompatActivity implements View.OnTouch
 
                     break;
                 case 3:
-                    txtInputName.startAnimation(carouselAnimation);
+                    //MOVED TO ANOTHER LAYOUT
+                    /*txtInputName.startAnimation(carouselAnimation);
                     txtInputDate.startAnimation(carouselAnimation);
                     btnConfirmar.startAnimation(btnAnim);
                     txtInputName.setVisibility(View.VISIBLE);
                     txtInputDate.setVisibility(View.VISIBLE);
-                    btnConfirmar.setVisibility(View.VISIBLE);
+                    btnConfirmar.setVisibility(View.VISIBLE);*/
 
                     break;
                 case 4:
@@ -137,8 +148,10 @@ public class QuestionsActivity extends AppCompatActivity implements View.OnTouch
     @Override
     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
         String date = dayOfMonth+"/"+month+"/"+year;
-        txtDate.setText(date);
-        txtDate.clearFocus();
+
+        //MOVED TO ANOTHER LAYOUT
+        /*txtDate.setText(date);
+        txtDate.clearFocus();*/
     }
     //TODO: MAKE DOUBLE CLICK EVENT
 

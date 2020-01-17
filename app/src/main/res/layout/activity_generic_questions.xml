@@ -10,26 +10,6 @@
     android:orientation="vertical"
     tools:context=".activities.MainActivity">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/txtInputDate"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="230dp"
-        android:layout_height="59dp"
-        android:layout_marginTop="20dp"
-        android:visibility="invisible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtInputName">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/txtDate"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Date"
-            android:inputType="textPersonName" />
-    </com.google.android.material.textfield.TextInputLayout>
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="396dp"
         android:layout_height="157dp"
@@ -63,45 +43,25 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/txtInputName"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="230dp"
-        android:layout_height="59dp"
-        android:layout_marginTop="231dp"
-        android:visibility="invisible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/txtName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Nombre completo"
-            android:inputType="textPersonName" />
-
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnConfirmar"
-        style="@style/Widget.MaterialComponents.Button"
+    <FrameLayout
+        android:id="@+id/fl"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
-        android:backgroundTint="@color/colorSecondary"
-        android:text="Confirmar"
-        android:textAppearance="@style/TextAppearance.AppCompat.Button"
-        android:textColor="@color/txtColor"
-        android:visibility="invisible"
-        app:iconTint="@color/colorSecondary"
+        android:layout_marginEnd="2dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtInputDate"
-        app:rippleColor="@color/colorSecondaryAccent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <fragment
+            android:id="@+id/fragmentLayouts"
+            android:name="com.example.orientacionescolar.activities.ui.main.QuestionsFragment"
+            android:layout_width="408dp"
+            android:layout_height="560dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginEnd="1dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </FrameLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

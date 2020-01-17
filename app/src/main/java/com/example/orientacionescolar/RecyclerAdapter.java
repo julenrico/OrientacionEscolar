@@ -105,7 +105,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Numero
                     //ADD TO FAV
                     databaseHelper.insertToFav(universityDegrees.get(listaIndex));
                     universityDegreesFav = databaseHelper.getFavUniversityDegrees();
-                    Toast.makeText(context, "Agregado a \'Grados guardados\'.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, "Grado guardado en Favoritos.", Toast.LENGTH_SHORT).show();
                     notifyDataSetChanged();
                 }
 
@@ -114,7 +114,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Numero
                     //QUIT FROM FAV
                     databaseHelper.deleteFromFav(universityDegrees.get(listaIndex));
                     universityDegreesFav = databaseHelper.getFavUniversityDegrees();
-                    Toast.makeText(context, "Eliminado de \'Grados guardados\'.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, "Grado eliminado de Favoritos.", Toast.LENGTH_SHORT).show();
                     notifyDataSetChanged();
 
                 }

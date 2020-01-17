@@ -58,6 +58,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/fab_menu_1"
+            android:textColor="@color/colorSecondary"
+            android:textSize="16sp"
             android:textStyle="bold" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -87,6 +89,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/fab_menu_2"
+            android:textColor="@color/colorSecondary"
+            android:textSize="16sp"
             android:textStyle="bold" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -117,6 +121,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/fab_menu_3"
+            android:textColor="@color/colorSecondary"
+            android:textSize="16sp"
             android:textStyle="bold" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -124,7 +130,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            app:srcCompat="@drawable/ic_book_black_24dp"
+            app:srcCompat="@drawable/ic_heart"
             android:tint="@android:color/white"
             app:fabSize="mini"
             app:maxImageSize="24dp"
