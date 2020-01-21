@@ -1,4 +1,4 @@
-package com.example.orientacionescolar.activities.ui.main;
+package com.example.orientacionescolar.activities.ui.main.questions;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,12 +11,10 @@ import androidx.fragment.app.Fragment;
 
 import com.example.orientacionescolar.R;
 
-public class QuestionsFragment extends Fragment {
-
+public class EmptyQuestion extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-
-        return inflater.inflate(R.layout.questions_branch, container, false);
+        return inflater.inflate(R.layout.questions_empty, container, false);
     }
 }

@@ -1,45 +1,31 @@
 package com.example.orientacionescolar.activities;
 
-import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.Button;
-import android.widget.DatePicker;
-import android.widget.FrameLayout;
-import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.example.orientacionescolar.R;
 import com.example.orientacionescolar.TextAnimation;
-import com.google.android.material.textfield.TextInputLayout;
+import com.example.orientacionescolar.activities.ui.main.questions.BranchQuestion;
 
-import java.util.Calendar;
-
-public class QuestionsActivity extends AppCompatActivity implements View.OnTouchListener, View.OnClickListener, DatePickerDialog.OnDateSetListener {
-
-    //MOVED TO ANOTHER LAYOUT
-    Button btnConfirmar;
-    TextView txtName;
-    TextInputLayout txtInputName;
-    TextInputLayout txtInputDate;
-
-    TextView txtDate;
-
+public class QuestionsActivity extends AppCompatActivity implements View.OnTouchListener, View.OnClickListener {
 
     TextAnimation ta;
-
-
-
 
     ConstraintLayout l;
 
     Animation carouselAnimation, btnAnim;
+
+    FragmentManager fragmentManager = getSupportFragmentManager();
+    public FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
 
     int contSwitch=0;
     int contFinish=0;
@@ -49,14 +35,7 @@ public class QuestionsActivity extends AppCompatActivity implements View.OnTouch
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_generic_questions);
 
-                //MOVED TO ANOTHER LAYOUT
-        /*btnConfirmar=findViewById(R.id.btnConfirmar);
-        txtName=findViewById(R.id.txtName);
-        txtDate=findViewById(R.id.txtDate);
-        txtInputName=findViewById(R.id.txtInputName);
-        txtInputDate=findViewById(R.id.txtInputDate);
-        btnConfirmar.setOnClickListener(this);
-        txtDate.setOnClickListener(this);*/
+        fragmentTransaction.setCustomAnimations(R.anim.carousel_animation,R.anim.scale_down);
 
         ta = findViewById(R.id.tv);
         ta.setText("");
@@ -68,6 +47,7 @@ public class QuestionsActivity extends AppCompatActivity implements View.OnTouch
 
         carouselAnimation = AnimationUtils.loadAnimation(this,R.anim.carousel_animation);
         btnAnim = AnimationUtils.loadAnimation(this,R.anim.button_animation);
+
         ta.setListener(() -> {
             contFinish++;
             switch (contFinish){
@@ -78,13 +58,9 @@ public class QuestionsActivity extends AppCompatActivity implements View.OnTouch
 
                     break;
                 case 3:
-                    //MOVED TO ANOTHER LAYOUT
-                    /*txtInputName.startAnimation(carouselAnimation);
-                    txtInputDate.startAnimation(carouselAnimation);
-                    btnConfirmar.startAnimation(btnAnim);
-                    txtInputName.setVisibility(View.VISIBLE);
-                    txtInputDate.setVisibility(View.VISIBLE);
-                    btnConfirmar.setVisibility(View.VISIBLE);*/
+                    BranchQuestion fragment = new BranchQuestion();
+                    fragmentTransaction.add(R.id.fragmentLayouts, fragment);
+                    fragmentTransaction.commit();
 
                     break;
                 case 4:
@@ -127,32 +103,6 @@ public class QuestionsActivity extends AppCompatActivity implements View.OnTouch
             }
             contSwitch++;
         }
-        if(v==txtDate){
-            showDatePickerDialog();
-
-        }
-    }
-
-    private void showDatePickerDialog() {
-        DatePickerDialog datePickerDialog = new DatePickerDialog(
-                this,
-                R.style.MyDatePickerDialogTheme,
-                this,
-                Calendar.getInstance().get(Calendar.YEAR),
-                Calendar.getInstance().get(Calendar.MONTH),
-                Calendar.getInstance().get(Calendar.DAY_OF_MONTH)
-        );
-        datePickerDialog.show();
-    }
-
-    @Override
-    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-        String date = dayOfMonth+"/"+month+"/"+year;
-
-        //MOVED TO ANOTHER LAYOUT
-        /*txtDate.setText(date);
-        txtDate.clearFocus();*/
     }
     //TODO: MAKE DOUBLE CLICK EVENT
-
 }
