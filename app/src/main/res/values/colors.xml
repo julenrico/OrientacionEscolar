@@ -7,12 +7,4 @@
     <color name="colorSecondaryDark">#c9bc1f</color>
     <color name="colorSecondaryAccent">#ffff8b</color>
     <color name="txtColor">#000000</color>
-
-    <!--<color name="colorPrimary">#f5d2bb</color>
-    <color name="colorPrimaryDark">#c2a18b</color>
-    <color name="colorPrimaryAccent">#ffffed</color>
-    <color name="colorSecondary">#bbdef5</color>
-    <color name="colorSecondaryDark">#8aacc2</color>
-    <color name="colorSecondaryAccent">#eeffff</color>
-    <color name="txtColor">#000000</color>-->
 </resources>

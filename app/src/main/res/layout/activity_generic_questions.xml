@@ -11,6 +11,7 @@
     tools:context=".activities.MainActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/regiLayout"
         android:layout_width="396dp"
         android:layout_height="157dp"
         android:layout_marginEnd="7dp"
@@ -47,17 +48,17 @@
         android:id="@+id/fl"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="2dp"
+        android:layout_marginEnd="1dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <fragment
             android:id="@+id/fragmentLayouts"
+            android:name="com.example.orientacionescolar.activities.ui.main.questions.EmptyQuestion"
             android:layout_width="408dp"
             android:layout_height="560dp"
             android:layout_marginTop="3dp"
             android:layout_marginEnd="1dp"
-            android:name="com.example.orientacionescolar.activities.ui.main.questions.EmptyQuestion"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
     </FrameLayout>

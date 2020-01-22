@@ -10,6 +10,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+
 import com.example.orientacionescolar.R;
 import com.example.orientacionescolar.TextAnimation;
 import com.example.orientacionescolar.activities.QuestionsActivity;
@@ -25,6 +28,9 @@ public class BranchQuestion extends Fragment implements View.OnClickListener {
     public int branchId;
 
     private TextAnimation textAnimation;
+
+    private EmptyQuestion emptyQuestion;
+    private FragmentManager fragmentManager;
 
     @Nullable
     @Override
@@ -46,33 +52,37 @@ public class BranchQuestion extends Fragment implements View.OnClickListener {
 
         textAnimation = ((QuestionsActivity) getActivity()).findViewById(R.id.tv);
 
+        fragmentManager = getActivity().getSupportFragmentManager();
+
+        emptyQuestion = new EmptyQuestion();
         return root;
     }
-
 
     @Override
     public void onClick(View v) {
 
         if (v == buttonArt) {
             branchId = 1;
-            textAnimation.setCharacterDelay(50);
-            textAnimation.animateText(getResources().getString(R.string.txtPresentation4));
+            fragmentTransaction();
         } else if (v == buttonScience) {
             branchId = 2;
-            textAnimation.setCharacterDelay(50);
-            textAnimation.animateText(getResources().getString(R.string.txtPresentation4));
+            fragmentTransaction();
         } else if (v == buttonHealth) {
             branchId = 3;
-            textAnimation.setCharacterDelay(50);
-            textAnimation.animateText(getResources().getString(R.string.txtPresentation4));
+            fragmentTransaction();
         } else if (v == buttonEngineering) {
             branchId = 5;
-            textAnimation.setCharacterDelay(50);
-            textAnimation.animateText(getResources().getString(R.string.txtPresentation4));
+            fragmentTransaction();
         } else if (v == buttonLaw) {
             branchId = 4;
-            textAnimation.setCharacterDelay(50);
-            textAnimation.animateText(getResources().getString(R.string.txtPresentation4));
+            fragmentTransaction();
         }
+    }
+
+    public void fragmentTransaction() {
+        FragmentTransaction fragmentTransactionEmpty = fragmentManager.beginTransaction();
+        fragmentTransactionEmpty.setCustomAnimations(R.anim.scale_up, R.anim.scale_down);
+        fragmentTransactionEmpty.replace(R.id.fragmentLayouts, emptyQuestion);
+        fragmentTransactionEmpty.commit();
     }
 }
