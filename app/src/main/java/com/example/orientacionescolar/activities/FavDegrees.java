@@ -23,7 +23,7 @@ public class FavDegrees extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_fav_degrees);
+        setContentView(R.layout.activity_info_consulting_vd);
         FragmentsAdapter fragmentsAdapter = new FragmentsAdapter(this, getSupportFragmentManager());
         ViewPager viewPager = findViewById(R.id.view_pager);
         viewPager.setAdapter(fragmentsAdapter);

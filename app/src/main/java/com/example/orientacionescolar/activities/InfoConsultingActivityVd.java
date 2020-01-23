@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
@@ -21,6 +22,9 @@ public class InfoConsultingActivityVd extends AppCompatActivity {
     LinearLayout fabLayout1, fabLayout2, fabLayout3;
     View fabBGLayout;
     boolean isFABOpen;
+    TextView textViewTest;
+    TextView textViewListaDeGrados;
+    TextView textViewGradosFavoritos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +41,10 @@ public class InfoConsultingActivityVd extends AppCompatActivity {
         bookFlipPageTransformer.setEnableScale(true);
         bookFlipPageTransformer.setScaleAmountPercent(10f);
         viewPager.setPageTransformer(true, bookFlipPageTransformer);*/
+
+        textViewTest = findViewById(R.id.textViewTest);
+        textViewListaDeGrados = findViewById(R.id.textViewListaDeGrados);
+        textViewGradosFavoritos = findViewById(R.id.textViewGradosFavoritos);
 
         fabLayout1 =  findViewById(R.id.fabLayout1);
         fabLayout2 =  findViewById(R.id.fabLayout2);
@@ -81,6 +89,9 @@ public class InfoConsultingActivityVd extends AppCompatActivity {
         fabLayout1.setVisibility(View.VISIBLE);
         fabLayout2.setVisibility(View.VISIBLE);
         fabLayout3.setVisibility(View.VISIBLE);
+        textViewTest.setVisibility(View.VISIBLE);
+        textViewListaDeGrados.setVisibility(View.VISIBLE);
+        textViewGradosFavoritos.setVisibility(View.VISIBLE);
         fabBGLayout.setVisibility(View.VISIBLE);
         fab.animate().rotationBy(45);
         fabLayout1.animate().translationY(-getResources().getDimension(R.dimen.standard_55));
@@ -90,6 +101,9 @@ public class InfoConsultingActivityVd extends AppCompatActivity {
     }
 
     private void closeFABMenu() {
+        textViewTest.setVisibility(View.GONE);
+        textViewListaDeGrados.setVisibility(View.GONE);
+        textViewGradosFavoritos.setVisibility(View.GONE);
         isFABOpen = false;
         fabBGLayout.setVisibility(View.GONE);
         fab.animate().rotation(0);

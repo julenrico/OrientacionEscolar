@@ -6,28 +6,27 @@
     android:id="@+id/mainLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.InfoConsultingActivityVd"
-    android:background="@color/colorPrimaryAccent"
-    >
+    tools:context=".activities.InfoConsultingActivityVd">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/AppTheme.AppBarOverlay"
-        android:backgroundTint="@color/colorPrimaryDark">
+        android:backgroundTint="@color/colorPrimaryDark"
+        android:elevation="4dp">
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tabs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorPrimaryDark"
+            android:background="@color/colorPrimary"
             app:layout_scrollFlags="scroll|enterAlways|snap"
-            app:tabIndicatorColor="@color/colorSecondaryDark"
+            app:tabIndicatorColor="@color/colorSecondary"
             app:tabIndicatorGravity="bottom"
             app:tabIndicatorHeight="4dp"
-            app:tabSelectedTextColor="@color/colorSecondaryDark"
+            app:tabSelectedTextColor="@color/colorSecondary"
             app:tabTextAppearance="@style/TabText"
-            app:tabTextColor="@color/colorPrimaryAccent" />
+            app:tabTextColor="@android:color/white" />
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.viewpager.widget.ViewPager
@@ -36,7 +35,6 @@
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
-    <include layout="@layout/content_activity_info_consulting_vd" />
     <View
         android:id="@+id/fabBGLayout"
         android:layout_width="match_parent"
@@ -55,6 +53,7 @@
         android:visibility="gone">
 
         <TextView
+            android:id="@+id/textViewTest"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/fab_menu_1"
@@ -86,6 +85,7 @@
         android:visibility="gone">
 
         <TextView
+            android:id="@+id/textViewListaDeGrados"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/fab_menu_2"
@@ -118,6 +118,7 @@
         android:visibility="gone">
 
         <TextView
+            android:id="@+id/textViewGradosFavoritos"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/fab_menu_3"
@@ -155,10 +156,11 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|end"
             android:gravity="center_vertical"
+            android:elevation="6dp"
             app:srcCompat="@drawable/ic_add"
             app:fabSize="normal"
             app:maxImageSize="36dp"
-            app:backgroundTint="@color/colorSecondaryDark"/>
+            app:backgroundTint="@color/colorSecondary"/>
     </LinearLayout>
 
 

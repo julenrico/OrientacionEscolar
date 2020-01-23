@@ -4,14 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.MainActivity"
-    android:background="@color/colorPrimaryAccent"
-    >
+    tools:context=".activities.MainActivity">
 
     <com.synnapps.carouselview.CarouselView
         android:id="@+id/carouselView"
         android:layout_width="396dp"
         android:layout_height="416dp"
+        android:elevation="4dp"
         app:fillColor="#FFFFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -35,6 +34,7 @@
         android:text="Siguiente"
         android:textAppearance="@style/TextAppearance.AppCompat.Button"
         android:textColor="@color/txtColor"
+        android:elevation="8dp"
         app:iconTint="@color/colorSecondary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

@@ -39,4 +39,5 @@ dependencies {
     implementation 'com.github.jd-alexander:LikeButton:0.2.3'
     implementation 'com.wajahatkarim3.easyflipviewpager:easyflipviewpager:1.0.0'
     implementation 'com.github.florent37:shapeofview:1.0.7'
+    implementation 'com.github.Ferfalk:SimpleSearchView:0.1.4'
 }

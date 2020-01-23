@@ -5,9 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/root"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/colorPrimaryAccent"
-    android:orientation="vertical"
+    android:layout_height="match_parent" android:orientation="vertical"
     tools:context=".activities.MainActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -17,7 +15,7 @@
         android:layout_marginEnd="7dp"
         android:layout_marginBottom="7dp"
         android:background="@drawable/text_dialog_bg"
-        android:orientation="vertical"
+        android:elevation="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
