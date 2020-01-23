@@ -8,6 +8,7 @@ import android.widget.ImageButton;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 
 import androidx.fragment.app.FragmentManager;
@@ -32,6 +33,8 @@ public class BranchQuestion extends Fragment implements View.OnClickListener {
     private EmptyQuestion emptyQuestion;
     private FragmentManager fragmentManager;
 
+    ConstraintLayout regiLayout;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -52,6 +55,8 @@ public class BranchQuestion extends Fragment implements View.OnClickListener {
 
         textAnimation = ((QuestionsActivity) getActivity()).findViewById(R.id.tv);
 
+        regiLayout = ((QuestionsActivity) getActivity()).regiLayout;
+
         fragmentManager = getActivity().getSupportFragmentManager();
 
         emptyQuestion = new EmptyQuestion();
@@ -63,18 +68,23 @@ public class BranchQuestion extends Fragment implements View.OnClickListener {
 
         if (v == buttonArt) {
             branchId = 1;
+            regiLayout.setEnabled(true);
             fragmentTransaction();
         } else if (v == buttonScience) {
             branchId = 2;
+            regiLayout.setEnabled(true);
             fragmentTransaction();
         } else if (v == buttonHealth) {
             branchId = 3;
+            regiLayout.setEnabled(true);
             fragmentTransaction();
         } else if (v == buttonEngineering) {
             branchId = 5;
+            regiLayout.setEnabled(true);
             fragmentTransaction();
         } else if (v == buttonLaw) {
             branchId = 4;
+            regiLayout.setEnabled(true);
             fragmentTransaction();
         }
     }

@@ -21,7 +21,7 @@ public class QuestionsActivity extends AppCompatActivity implements View.OnTouch
 
     TextAnimation ta;
 
-    ConstraintLayout regiLayout;
+    public ConstraintLayout regiLayout;
 
     Animation carouselAnimation, btnAnim;
 
@@ -38,7 +38,7 @@ public class QuestionsActivity extends AppCompatActivity implements View.OnTouch
         ta = findViewById(R.id.tv);
         ta.setText("");
         ta.setCharacterDelay(50);
-        ta.animateText(getResources().getString(R.string.txtPresentation1));
+        ta.animateText(getResources().getString(R.string.txtEjemplo1));
         regiLayout = findViewById(R.id.regiLayout);
         regiLayout.setOnClickListener(this);
         regiLayout.setOnTouchListener(this);
@@ -57,6 +57,7 @@ public class QuestionsActivity extends AppCompatActivity implements View.OnTouch
                     BranchQuestion branchQuestion = new BranchQuestion();
                     fragmentTransactionBranch.add(R.id.fragmentLayouts, branchQuestion);
                     fragmentTransactionBranch.commit();
+                    regiLayout.setEnabled(false);
                     break;
 
                 case 6:
@@ -65,6 +66,7 @@ public class QuestionsActivity extends AppCompatActivity implements View.OnTouch
                     CareerOrGrade careerOrGrade = new CareerOrGrade();
                     fragmentTransactionGradeOrDegree.replace(R.id.fragmentLayouts, careerOrGrade);
                     fragmentTransactionGradeOrDegree.commit();
+                    regiLayout.setEnabled(false);
                     break;
             }
         });
@@ -91,23 +93,23 @@ public class QuestionsActivity extends AppCompatActivity implements View.OnTouch
                 switch (contSwitch) {
                     case 0:
                         ta.setCharacterDelay(50);
-                        ta.animateText(getResources().getString(R.string.txtPresentation2));
+                        ta.animateText(getResources().getString(R.string.txtEjemplo2));
                         break;
                     case 1:
                         ta.setCharacterDelay(50);
-                        ta.animateText(getResources().getString(R.string.txtPresentation3));
+                        ta.animateText(getResources().getString(R.string.txtEjemplo3));
                         break;
                     case 2:
                         ta.setCharacterDelay(50);
-                        ta.animateText(getResources().getString(R.string.txtPresentation4));
+                        ta.animateText(getResources().getString(R.string.txtEjemplo4));
                         break;
                     case 3:
                         ta.setCharacterDelay(50);
-                        ta.animateText(getResources().getString(R.string.txtPresentation5));
+                        ta.animateText(getResources().getString(R.string.txtEjemplo5));
                         break;
                     case 4:
                         ta.setCharacterDelay(50);
-                        ta.animateText("Bernis huele mal");
+                        ta.animateText(getResources().getString(R.string.txtEjemplo6));
                 }
                 contSwitch++;
             }

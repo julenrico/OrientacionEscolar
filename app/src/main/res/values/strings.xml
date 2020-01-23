@@ -1,24 +1,38 @@
 <resources>
     <string name="app_name">OrientacionEscolar</string>
+
     <string name="slideFrase1">Contesta</string>
     <string name="slideFrase2">Descúbrete</string>
     <string name="slideFrase3">¡Llévalo a cabo!</string>
+
     <string name="slideParrafo1">Responde a las preguntas en base a la experiencia y gustos que tengas.</string>
     <string name="slideParrafo2">Averigua qué te gustaría estudiar y de qué te ves trabajando en el futuro.</string>
     <string name="slideParrafo3">Infórmate sobre los grados y carreras que te interesan y contacta con los centros que los imparten.</string>
-    <string name="txtPresentation1">Texto normal 1.</string>
-    <string name="txtPresentation2">Texto normal 2.</string>
-    <string name="txtPresentation3">Texto normal 3.</string>
+
+    <string name="txtEjemplo1">Texto Ejemplo 1.</string>
+    <string name="txtEjemplo2">Texto Ejemplo 2.</string>
+    <string name="txtEjemplo3">Texto Ejemplo 3.</string>
+    <string name="txtEjemplo4">Texto Ejemplo 4.</string>
+    <string name="txtEjemplo5">Texto Ejemplo 5.</string>
+    <string name="txtEjemplo6">Texto Ejemplo 6.</string>
+    <string name="txtEjemplo7">Texto Ejemplo 7.</string>
+    <string name="txtEjemplo8">Texto Ejemplo 8.</string>
+    <string name="txtEjemplo9">Texto Ejemplo 9.</string>
+    <string name="txtEjemplo10">Texto Ejemplo 10.</string>
+
+
     <string name="title_activity_info_consulting_vd">InfoConsultingVdActivity</string>
+
     <string name="tab_text_1">UNIVERSIDAD</string>
     <string name="tab_text_2">SUPERIORES</string>
     <string name="tab_text_3">MEDIOS</string>
+
     <string name="fab_menu_1">Test</string>
     <string name="fab_menu_2">Lista de grados</string>
     <string name="fab_menu_3">Grados Favoritos</string>
-    <string name="txtPresentation4">TEXTO DEL Y DESPUES DEL FRAGMENT</string>
-    <string name="txtCarreraUniversitaria">Permite obtener el Título de Graduado Universitario que da acceso a muchos de los puestos de máxima cualificación dentro del mundo laboral. También permite el acceso a los estudios de Doctorado, y Master universitarios.</string>
-    <string name="txtGradoSuperior">Un grado superior es un título profesional que nos calificará como “técnico superior” dentro del área en el que nos desarrollemos. Ideal para aquellas personas que quieren acceder rápidamente al mercado laboral.</string>
+
+    <string name="txtCarreraUniversitaria">Permite obtener el Título de Graduado Universitario que da acceso a muchos de los puestos de máxima cualificación dentro del mundo laboral. Posibilidad de cursar Máster y Doctorado.</string>
+    <string name="txtGradoSuperior">Un grado superior es un título profesional que nos calificará como “técnico superior” dentro del área en el que nos desarrollemos. Ideal para personas que quieren acceder rápidamente al mercado laboral.</string>
     <string name="txtGradoMedio">Un grado medio es un título profesional que nos calificará como “técnico” dentro del área en el que nos desarrollemos. Después se puede acceder a un grado superior o al Bachillerato.</string>
-    <string name="txtPresentation5">TEXTO DESPUES DEL TEXTO DESPUES DEL FRAGMENT</string>
+
 </resources>

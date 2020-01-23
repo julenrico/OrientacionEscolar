@@ -25,6 +25,8 @@ public class CareerOrGrade extends Fragment implements View.OnClickListener {
     private ConstraintLayout layoutGradoSuperior;
     private ConstraintLayout layoutUniversidad;
 
+    ConstraintLayout regiLayout;
+
     private TextAnimation textAnimation;
 
     @Nullable
@@ -44,6 +46,8 @@ public class CareerOrGrade extends Fragment implements View.OnClickListener {
 
         textAnimation = ((QuestionsActivity) getActivity()).findViewById(R.id.tv);
 
+        regiLayout = ((QuestionsActivity) getActivity()).regiLayout;
+
         emptyQuestion = new EmptyQuestion();
 
         return root;
@@ -52,10 +56,13 @@ public class CareerOrGrade extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         if (v == layoutGradoMedio) {
+            regiLayout.setEnabled(true);
             fragmentTransaction();
         } else if (v == layoutGradoSuperior) {
+            regiLayout.setEnabled(true);
             fragmentTransaction();
         } else if (v == layoutUniversidad) {
+            regiLayout.setEnabled(true);
             fragmentTransaction();
         }
     }

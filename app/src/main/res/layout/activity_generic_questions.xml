@@ -13,7 +13,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/regiLayout"
         android:layout_width="396dp"
-        android:layout_height="157dp"
+        android:layout_height="145dp"
         android:layout_marginEnd="7dp"
         android:layout_marginBottom="7dp"
         android:background="@drawable/text_dialog_bg"
@@ -26,7 +26,7 @@
             android:layout_width="134dp"
             android:layout_height="140dp"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="14dp"
+            android:layout_marginTop="4dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_ajolote" />
@@ -35,12 +35,13 @@
             android:id="@+id/tv"
             android:layout_width="234dp"
             android:layout_height="130dp"
+            android:layout_marginTop="10dp"
             android:layout_marginEnd="16dp"
             android:textAlignment="center"
             android:textColor="@color/txtColor"
             android:textSize="14sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -56,7 +57,7 @@
             android:id="@+id/fragmentLayouts"
             android:name="com.example.orientacionescolar.activities.ui.main.questions.EmptyQuestion"
             android:layout_width="408dp"
-            android:layout_height="560dp"
+            android:layout_height="match_parent"
             android:layout_marginTop="3dp"
             android:layout_marginEnd="1dp"
             app:layout_constraintEnd_toEndOf="parent"
