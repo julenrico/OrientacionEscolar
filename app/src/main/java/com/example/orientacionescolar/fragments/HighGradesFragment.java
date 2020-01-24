@@ -1,4 +1,4 @@
-package com.example.orientacionescolar.activities.ui.main;
+package com.example.orientacionescolar.fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -6,7 +6,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;

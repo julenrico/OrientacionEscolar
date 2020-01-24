@@ -13,9 +13,9 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.orientacionescolar.R;
-import com.example.orientacionescolar.TextAnimation;
-import com.example.orientacionescolar.activities.ui.main.questions.BranchQuestion;
-import com.example.orientacionescolar.activities.ui.main.questions.CareerOrGrade;
+import com.example.orientacionescolar.main.TextAnimation;
+import com.example.orientacionescolar.questions.BranchQuestion;
+import com.example.orientacionescolar.questions.CareerOrGrade;
 
 public class QuestionsActivity extends AppCompatActivity implements View.OnTouchListener, View.OnClickListener {
 

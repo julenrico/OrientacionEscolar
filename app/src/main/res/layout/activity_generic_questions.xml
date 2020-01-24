@@ -29,7 +29,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_ajolote" />
 
-        <com.example.orientacionescolar.TextAnimation
+        <com.example.orientacionescolar.main.TextAnimation
             android:id="@+id/tv"
             android:layout_width="234dp"
             android:layout_height="130dp"
@@ -53,7 +53,7 @@
 
         <fragment
             android:id="@+id/fragmentLayouts"
-            android:name="com.example.orientacionescolar.activities.ui.main.questions.EmptyQuestion"
+            android:name="com.example.orientacionescolar.questions.EmptyQuestion"
             android:layout_width="408dp"
             android:layout_height="match_parent"
             android:layout_marginTop="3dp"

@@ -1,4 +1,4 @@
-package com.example.orientacionescolar.activities.ui.main;
+package com.example.orientacionescolar.fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,9 +10,9 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.orientacionescolar.DatabaseHelper;
+import com.example.orientacionescolar.main.DatabaseHelper;
 import com.example.orientacionescolar.R;
-import com.example.orientacionescolar.RecyclerAdapter;
+import com.example.orientacionescolar.main.RecyclerAdapter;
 
 
 /**
@@ -20,11 +20,9 @@ import com.example.orientacionescolar.RecyclerAdapter;
  */
 public class DegreesFragment extends Fragment implements RecyclerAdapter.listItemClick {
 
-    DatabaseHelper databaseHelper;
+    private DatabaseHelper databaseHelper;
 
-    RecyclerView recyclerView;
-
-    RecyclerAdapter adapter;
+    private RecyclerView recyclerView;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -46,7 +44,7 @@ public class DegreesFragment extends Fragment implements RecyclerAdapter.listIte
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(linearLayoutManager);
 
-        recyclerView.setAdapter(new RecyclerAdapter(databaseHelper.getUniversityDegrees(),this,getContext()));
+        recyclerView.setAdapter(new RecyclerAdapter(databaseHelper.getUniversityDegrees(), this, getContext()));
 
         return root;
     }
@@ -57,12 +55,12 @@ public class DegreesFragment extends Fragment implements RecyclerAdapter.listIte
 
     }
 
-    public void setFav(boolean fav) {
+    void setFav(boolean fav) {
+        RecyclerAdapter adapter;
         if (fav) {
-            adapter = new RecyclerAdapter(databaseHelper.getFavUniversityDegrees(),this,getContext());
-        }
-        else {
-            adapter = new RecyclerAdapter(databaseHelper.getUniversityDegrees(),this,getContext());
+            adapter = new RecyclerAdapter(databaseHelper.getFavUniversityDegrees(), this, getContext());
+        } else {
+            adapter = new RecyclerAdapter(databaseHelper.getUniversityDegrees(), this, getContext());
         }
         recyclerView.setAdapter(adapter);
     }

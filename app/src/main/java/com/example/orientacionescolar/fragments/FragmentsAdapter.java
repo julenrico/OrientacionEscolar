@@ -1,4 +1,4 @@
-package com.example.orientacionescolar.activities.ui.main;
+package com.example.orientacionescolar.fragments;
 
 import android.content.Context;
 
@@ -18,9 +18,6 @@ public class FragmentsAdapter extends FragmentPagerAdapter {
     private final Context mContext;
 
     private DegreesFragment degreesFragment;
-    private HighGradesFragment highGradesFragment;
-    private MediumGradesAdapter mediumGradesAdapter;
-
 
 
     public FragmentsAdapter(Context context, FragmentManager fm) {
@@ -32,16 +29,14 @@ public class FragmentsAdapter extends FragmentPagerAdapter {
     @Override
     public Fragment getItem(int position) {
 
-        switch (position){
+        switch (position) {
             case 0:
                 degreesFragment = new DegreesFragment();
                 return degreesFragment;
             case 1:
-                highGradesFragment = new HighGradesFragment();
-                return highGradesFragment;
+                return new HighGradesFragment();
             case 2:
-                mediumGradesAdapter = new MediumGradesAdapter();
-                return mediumGradesAdapter;
+                return new MediumGradesAdapter();
             default:
                 return null;
         }

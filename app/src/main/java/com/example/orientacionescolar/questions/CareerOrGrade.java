@@ -1,4 +1,4 @@
-package com.example.orientacionescolar.activities.ui.main.questions;
+package com.example.orientacionescolar.questions;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -13,7 +13,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.orientacionescolar.R;
-import com.example.orientacionescolar.TextAnimation;
+import com.example.orientacionescolar.main.TextAnimation;
 import com.example.orientacionescolar.activities.QuestionsActivity;
 
 public class CareerOrGrade extends Fragment implements View.OnClickListener {

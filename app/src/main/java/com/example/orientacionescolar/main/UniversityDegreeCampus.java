@@ -1,4 +1,4 @@
-package com.example.orientacionescolar;
+package com.example.orientacionescolar.main;
 
 public class UniversityDegreeCampus {
 

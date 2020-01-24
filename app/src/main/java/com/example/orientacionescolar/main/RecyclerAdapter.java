@@ -1,4 +1,4 @@
-package com.example.orientacionescolar;
+package com.example.orientacionescolar.main;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -10,6 +10,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.orientacionescolar.R;
 import com.like.LikeButton;
 import com.like.OnLikeListener;
 

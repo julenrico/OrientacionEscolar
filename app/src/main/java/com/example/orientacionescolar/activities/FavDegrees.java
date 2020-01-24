@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.orientacionescolar.R;
-import com.example.orientacionescolar.activities.ui.main.FragmentsAdapter;
+import com.example.orientacionescolar.fragments.FragmentsAdapter;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class FavDegrees extends AppCompatActivity {

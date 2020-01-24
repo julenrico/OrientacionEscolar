@@ -1,4 +1,4 @@
-package com.example.orientacionescolar;
+package com.example.orientacionescolar.main;
 
 import android.content.Context;
 import android.database.Cursor;

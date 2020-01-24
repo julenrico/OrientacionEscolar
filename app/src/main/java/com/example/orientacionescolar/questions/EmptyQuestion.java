@@ -1,4 +1,4 @@
-package com.example.orientacionescolar.activities.ui.main.questions;
+package com.example.orientacionescolar.questions;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

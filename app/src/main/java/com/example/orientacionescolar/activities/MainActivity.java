@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.orientacionescolar.DatabaseHelper;
+import com.example.orientacionescolar.main.DatabaseHelper;
 import com.example.orientacionescolar.R;
 import com.synnapps.carouselview.CarouselView;
 
