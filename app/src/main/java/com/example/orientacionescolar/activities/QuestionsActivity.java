@@ -16,6 +16,7 @@ import com.example.orientacionescolar.R;
 import com.example.orientacionescolar.main.TextAnimation;
 import com.example.orientacionescolar.questions.BranchQuestion;
 import com.example.orientacionescolar.questions.CareerOrGrade;
+import com.example.orientacionescolar.questions.ProvinciaQuestion;
 
 public class QuestionsActivity extends AppCompatActivity implements View.OnTouchListener, View.OnClickListener {
 
@@ -68,6 +69,14 @@ public class QuestionsActivity extends AppCompatActivity implements View.OnTouch
                     fragmentTransactionGradeOrDegree.commit();
                     regiLayout.setEnabled(false);
                     break;
+                case 9:
+                    FragmentTransaction fragmentTransactionProvincia = fragmentManager.beginTransaction();
+                    fragmentTransactionProvincia.setCustomAnimations(R.anim.scale_up, R.anim.scale_down);
+                    ProvinciaQuestion provinciaQuestion = new ProvinciaQuestion();
+                    fragmentTransactionProvincia.replace(R.id.fragmentLayouts, provinciaQuestion);
+                    fragmentTransactionProvincia.commit();
+                    regiLayout.setEnabled(false);
+                    break;
             }
         });
     }
@@ -110,6 +119,19 @@ public class QuestionsActivity extends AppCompatActivity implements View.OnTouch
                     case 4:
                         ta.setCharacterDelay(50);
                         ta.animateText(getResources().getString(R.string.txtEjemplo6));
+                        break;
+                    case 5:
+                        ta.setCharacterDelay(50);
+                        ta.animateText(getResources().getString(R.string.txtEjemplo7));
+                        break;
+                    case 6:
+                        ta.setCharacterDelay(50);
+                        ta.animateText(getResources().getString(R.string.txtEjemplo8));
+                        break;
+                    case 7:
+                        ta.setCharacterDelay(50);
+                        ta.animateText(getResources().getString(R.string.txtEjemplo9));
+                        break;
                 }
                 contSwitch++;
             }

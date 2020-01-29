@@ -13,7 +13,6 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.orientacionescolar.R;
-import com.example.orientacionescolar.main.TextAnimation;
 import com.example.orientacionescolar.activities.QuestionsActivity;
 
 public class CareerOrGrade extends Fragment implements View.OnClickListener {
@@ -25,9 +24,11 @@ public class CareerOrGrade extends Fragment implements View.OnClickListener {
     private ConstraintLayout layoutGradoSuperior;
     private ConstraintLayout layoutUniversidad;
 
-    ConstraintLayout regiLayout;
+    private ConstraintLayout regiLayout;
 
-    private TextAnimation textAnimation;
+    public boolean isUniversityDegree;
+    public boolean isHighGrade;
+    public boolean isMediumGrade;
 
     @Nullable
     @Override
@@ -44,8 +45,6 @@ public class CareerOrGrade extends Fragment implements View.OnClickListener {
         layoutGradoSuperior.setOnClickListener(this);
         layoutUniversidad.setOnClickListener(this);
 
-        textAnimation = ((QuestionsActivity) getActivity()).findViewById(R.id.tv);
-
         regiLayout = ((QuestionsActivity) getActivity()).regiLayout;
 
         emptyQuestion = new EmptyQuestion();
@@ -56,18 +55,21 @@ public class CareerOrGrade extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         if (v == layoutGradoMedio) {
+            isMediumGrade = true;
             regiLayout.setEnabled(true);
             fragmentTransaction();
         } else if (v == layoutGradoSuperior) {
+            isHighGrade = true;
             regiLayout.setEnabled(true);
             fragmentTransaction();
         } else if (v == layoutUniversidad) {
+            isUniversityDegree = true;
             regiLayout.setEnabled(true);
             fragmentTransaction();
         }
     }
 
-    public void fragmentTransaction() {
+    private void fragmentTransaction() {
         FragmentTransaction fragmentTransactionEmpty = fragmentManager.beginTransaction();
         fragmentTransactionEmpty.setCustomAnimations(R.anim.scale_up, R.anim.scale_down);
         fragmentTransactionEmpty.replace(R.id.fragmentLayouts, emptyQuestion);

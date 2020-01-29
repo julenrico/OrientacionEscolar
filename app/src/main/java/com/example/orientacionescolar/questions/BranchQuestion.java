@@ -78,12 +78,12 @@ public class BranchQuestion extends Fragment implements View.OnClickListener {
             branchId = 3;
             regiLayout.setEnabled(true);
             fragmentTransaction();
-        } else if (v == buttonEngineering) {
-            branchId = 5;
-            regiLayout.setEnabled(true);
-            fragmentTransaction();
         } else if (v == buttonLaw) {
             branchId = 4;
+            regiLayout.setEnabled(true);
+            fragmentTransaction();
+        } else if (v == buttonEngineering) {
+            branchId = 5;
             regiLayout.setEnabled(true);
             fragmentTransaction();
         }
