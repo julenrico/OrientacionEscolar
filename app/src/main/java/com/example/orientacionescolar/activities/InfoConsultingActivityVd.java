@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
@@ -50,18 +49,17 @@ public class InfoConsultingActivityVd extends AppCompatActivity {
         tabs.setupWithViewPager(viewPager);
 
 
-
         textViewTest = findViewById(R.id.textViewTest);
         textViewListaDeGrados = findViewById(R.id.textViewListaDeGrados);
         textViewGradosFavoritos = findViewById(R.id.textViewGradosFavoritos);
 
-        fabLayout1 =  findViewById(R.id.fabLayout1);
-        fabLayout2 =  findViewById(R.id.fabLayout2);
-        fabLayout3 =  findViewById(R.id.fabLayout3);
-        fab =  findViewById(R.id.fab);
-        fab1 =  findViewById(R.id.fab1);
-        fab2 =  findViewById(R.id.fab2);
-        fab3 =  findViewById(R.id.fab3);
+        fabLayout1 = findViewById(R.id.fabLayout1);
+        fabLayout2 = findViewById(R.id.fabLayout2);
+        fabLayout3 = findViewById(R.id.fabLayout3);
+        fab = findViewById(R.id.fab);
+        fab1 = findViewById(R.id.fab1);
+        fab2 = findViewById(R.id.fab2);
+        fab3 = findViewById(R.id.fab3);
         fabBGLayout = findViewById(R.id.fabBGLayout);
         fab.setOnClickListener(view -> {
             if (!isFABOpen) {
@@ -73,19 +71,19 @@ public class InfoConsultingActivityVd extends AppCompatActivity {
 
         fab1.setOnClickListener(view -> {
             closeFABMenu();
-            isFABOpen=false;
+            isFABOpen = false;
             startActivity(new Intent(InfoConsultingActivityVd.this, QuestionsActivity.class));
         });
 
         fab2.setOnClickListener(view -> {
             fragmentsAdapter.setFav(false);
             closeFABMenu();
-            isFABOpen=false;
+            isFABOpen = false;
         });
 
-        fab3.setOnClickListener(view ->{
+        fab3.setOnClickListener(view -> {
             closeFABMenu();
-            isFABOpen=false;
+            isFABOpen = false;
             fragmentsAdapter.setFav(true);
         });
 
@@ -106,7 +104,7 @@ public class InfoConsultingActivityVd extends AppCompatActivity {
         fabLayout1.animate().translationY(-getResources().getDimension(R.dimen.standard_55));
         fabLayout2.animate().translationY(-getResources().getDimension(R.dimen.standard_100));
         fabLayout3.animate().translationY(-getResources().getDimension(R.dimen.standard_145));
-        fabBGLayout.setBackgroundColor(Color.argb(170,98, 115, 120));
+        fabBGLayout.setBackgroundColor(Color.argb(170, 98, 115, 120));
     }
 
     private void closeFABMenu() {

@@ -87,44 +87,44 @@ public class QuestionsActivity extends AppCompatActivity implements View.OnTouch
 
     @Override
     public boolean onTouch(View v, MotionEvent event) {
-            if (event.getAction() == MotionEvent.ACTION_DOWN) {
-                if (ta.textEnded()) {
-                    v.performClick();
-                }
-                ta.setCharacterDelay(10);
-                return true;
-            } else if (event.getAction() == MotionEvent.ACTION_UP) {
-                ta.setCharacterDelay(50);
-                return true;
+        if (event.getAction() == MotionEvent.ACTION_DOWN) {
+            if (ta.textEnded()) {
+                v.performClick();
             }
+            ta.setCharacterDelay(10);
+            return true;
+        } else if (event.getAction() == MotionEvent.ACTION_UP) {
+            ta.setCharacterDelay(50);
+            return true;
+        }
         return false;
     }
 
     @Override
     public void onClick(View v) {
-            if (ta.textEnded()) {
-                switch (contSwitch) {
-                    case 0:
-                        regiImage.startAnimation(carouselAnimation);
-                        regiImage.setVisibility(View.VISIBLE);
-                        ta.setCharacterDelay(50);
-                        ta.animateText(getResources().getString(R.string.txtReginald2));
-                        break;
-                    case 1:
-                        ta.setCharacterDelay(50);
-                        ta.animateText(getResources().getString(R.string.txtReginald3));
-                        break;
-                    case 2:
-                        ta.setCharacterDelay(50);
-                        ta.animateText(getResources().getString(R.string.txtReginald4));
-                        break;
-                    case 3:
-                        ta.setCharacterDelay(50);
-                        ta.animateText(getResources().getString(R.string.txtReginald5));
-                        break;
-                }
-                contSwitch++;
+        if (ta.textEnded()) {
+            switch (contSwitch) {
+                case 0:
+                    regiImage.startAnimation(carouselAnimation);
+                    regiImage.setVisibility(View.VISIBLE);
+                    ta.setCharacterDelay(50);
+                    ta.animateText(getResources().getString(R.string.txtReginald2));
+                    break;
+                case 1:
+                    ta.setCharacterDelay(50);
+                    ta.animateText(getResources().getString(R.string.txtReginald3));
+                    break;
+                case 2:
+                    ta.setCharacterDelay(50);
+                    ta.animateText(getResources().getString(R.string.txtReginald4));
+                    break;
+                case 3:
+                    ta.setCharacterDelay(50);
+                    ta.animateText(getResources().getString(R.string.txtReginald5));
+                    break;
             }
+            contSwitch++;
+        }
     }
     //TODO: MAKE DOUBLE CLICK EVENT
 }

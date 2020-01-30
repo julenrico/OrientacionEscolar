@@ -26,9 +26,7 @@ public class ProvinciaQuestion extends Fragment implements View.OnClickListener 
 
     private ConstraintLayout regiLayout;
 
-    public boolean isAraba;
-    public boolean isBizkaia;
-    public boolean isGipuzkoa;
+    public int provincia;
 
     @Nullable
     @Override
@@ -54,15 +52,15 @@ public class ProvinciaQuestion extends Fragment implements View.OnClickListener 
     @Override
     public void onClick(View v) {
         if (v == layoutAraba) {
-            isAraba = true;
+            provincia = 1;
             regiLayout.setEnabled(true);
             fragmentTransaction();
         } else if (v == layoutBizkaia) {
-            isBizkaia = true;
+            provincia = 2;
             regiLayout.setEnabled(true);
             fragmentTransaction();
         } else if (v == layoutGipuzkoa) {
-            isGipuzkoa = true;
+            provincia = 3;
             regiLayout.setEnabled(true);
             fragmentTransaction();
         }

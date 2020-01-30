@@ -119,4 +119,28 @@ public class DatabaseHelper extends SQLiteAssetHelper {
         return universityDegrees;
     }
 
+    /*public ArrayList<UniversityDegree> getSuggestedUniversityDegrees(int suggestedBranchId, int provincia){
+
+        ArrayList<UniversityDegree> suggestedUniversityDegrees = new ArrayList<>();
+        Cursor c = getReadableDatabase().rawQuery("select * from university_degrees" +
+                "    join university_center_degrees ucd on university_degrees.degree_id = ucd.degree_id" +
+                "    join university_degree_branches udb on university_degrees.degree_branch = udb.branch_id" +
+                "    join university_degree_centers udc on ucd.center_id = udc.center_id" +
+                "    join university_degree_campus u on udc.center_campus = u.campus_id" +
+                "    join suggested_university_degrees sad on university_degrees.degree_id = sad.degree_id" +
+                "    where university_degrees.degree_id = sad.degree_id and ucd.center_id = sad.center_id and udb.branch_id = suggestedBranchId and udc.campus_id = provincia" +
+                " order by degree_name asc",null);
+        Log.d("CHORIPAN",String.valueOf(c.getCount()));
+        c.moveToFirst();
+        for (int i = 0; i < c.getCount(); i++) {
+            UniversityDegreeBranch branch = new UniversityDegreeBranch(c.getInt(5),c.getString(6));
+            UniversityDegreeCampus campus = new UniversityDegreeCampus(c.getInt(10),c.getString(11));
+            UniversityDegreeCenter center = new UniversityDegreeCenter(c.getInt(3),c.getString(8),campus);
+            suggestedUniversityDegrees.add(new UniversityDegree(c.getInt(0),c.getString(1),branch,campus,center));
+            c.moveToNext();
+        }
+
+        return suggestedUniversityDegrees;
+    }*/
+
 }
