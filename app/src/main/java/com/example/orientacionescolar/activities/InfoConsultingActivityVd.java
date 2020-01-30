@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
@@ -29,6 +30,18 @@ public class InfoConsultingActivityVd extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        /*COMPROBAR SI ES LA PRIMERA VEZ QUE SE EJECUTA LA APP*/
+
+        boolean isFirstRun = getSharedPreferences("PREFERENCE", MODE_PRIVATE)
+                .getBoolean("isFirstRun", true);
+
+        if (isFirstRun) {
+            startActivity(new Intent(InfoConsultingActivityVd.this, MainActivity.class));
+        }
+        getSharedPreferences("PREFERENCE", MODE_PRIVATE).edit()
+                .putBoolean("isFirstRun", false).apply();
+
         setContentView(R.layout.activity_info_consulting_vd);
         FragmentsAdapter fragmentsAdapter = new FragmentsAdapter(this, getSupportFragmentManager());
         ViewPager viewPager = findViewById(R.id.view_pager);
@@ -36,11 +49,7 @@ public class InfoConsultingActivityVd extends AppCompatActivity {
         TabLayout tabs = findViewById(R.id.tabs);
         tabs.setupWithViewPager(viewPager);
 
-        //BOOK LIKE ANIMATION
-        /*BookFlipPageTransformer bookFlipPageTransformer = new BookFlipPageTransformer();
-        bookFlipPageTransformer.setEnableScale(true);
-        bookFlipPageTransformer.setScaleAmountPercent(10f);
-        viewPager.setPageTransformer(true, bookFlipPageTransformer);*/
+
 
         textViewTest = findViewById(R.id.textViewTest);
         textViewListaDeGrados = findViewById(R.id.textViewListaDeGrados);

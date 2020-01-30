@@ -9,16 +9,16 @@
     <string name="slideParrafo2">Averigua qué te gustaría estudiar y de qué te ves trabajando en el futuro.</string>
     <string name="slideParrafo3">Infórmate sobre los grados y carreras que te interesan y contacta con los centros que los imparten.</string>
 
-    <string name="txtEjemplo1">Texto Ejemplo 1.</string>
-    <string name="txtEjemplo2">Texto Ejemplo 2.</string>
-    <string name="txtEjemplo3">Texto Ejemplo 3.</string>
-    <string name="txtEjemplo4">Texto Ejemplo 4.</string>
-    <string name="txtEjemplo5">Texto Ejemplo 5.</string>
-    <string name="txtEjemplo6">Texto Ejemplo 6.</string>
-    <string name="txtEjemplo7">Texto Ejemplo 7.</string>
-    <string name="txtEjemplo8">Texto Ejemplo 8.</string>
-    <string name="txtEjemplo9">Texto Ejemplo 9.</string>
-    <string name="txtEjemplo10">Texto Ejemplo 10.</string>
+    <string name="txtReginald1">Mantén pulsada la caja para avanzar a más velocidad. Cuando el texto acabe, pulsa una vez en la caja para avanzar al siguiente texto..</string>
+    <string name="txtReginald2">¡Hola, bienvenido a Orientación Escolar! Soy Reginald y voy a ofrecerte un grado en base a las preguntas que respondas..</string>
+    <string name="txtReginald3">Empecemos, ¿En qué rama te gustaría desarrollar tus estudios?.</string>
+    <string name="txtReginald4">¿Qué nivel de estudios te gustaría realizar?.</string>
+    <string name="txtReginald5">¿Dónde te gustaría realizar los estudios?.</string>
+    <string name="txtReginald6"></string>
+    <string name="txtReginald7"></string>
+    <string name="txtReginald8"></string>
+    <string name="txtReginald9"></string>
+    <string name="txtReginald10"></string>
 
 
     <string name="title_activity_info_consulting_vd">InfoConsultingVdActivity</string>

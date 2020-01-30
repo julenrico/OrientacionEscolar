@@ -7,16 +7,71 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.example.orientacionescolar.R;
+import com.example.orientacionescolar.activities.QuestionsActivity;
 
-public class ProvinciaQuestion extends Fragment {
+public class ProvinciaQuestion extends Fragment implements View.OnClickListener {
+
+    private EmptyQuestion emptyQuestion;
+    private FragmentManager fragmentManager;
+
+    private ConstraintLayout layoutAraba;
+    private ConstraintLayout layoutBizkaia;
+    private ConstraintLayout layoutGipuzkoa;
+
+    private ConstraintLayout regiLayout;
+
+    public boolean isAraba;
+    public boolean isBizkaia;
+    public boolean isGipuzkoa;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.questions_provincia, container, false);
 
+        layoutAraba = root.findViewById(R.id.layoutAraba);
+        layoutBizkaia = root.findViewById(R.id.layoutBizkaia);
+        layoutGipuzkoa = root.findViewById(R.id.layoutGipuzkoa);
+        fragmentManager = getActivity().getSupportFragmentManager();
+
+        layoutAraba.setOnClickListener(this);
+        layoutBizkaia.setOnClickListener(this);
+        layoutGipuzkoa.setOnClickListener(this);
+
+        regiLayout = ((QuestionsActivity) getActivity()).regiLayout;
+
+        emptyQuestion = new EmptyQuestion();
+
         return root;
+    }
+
+    @Override
+    public void onClick(View v) {
+        if (v == layoutAraba) {
+            isAraba = true;
+            regiLayout.setEnabled(true);
+            fragmentTransaction();
+        } else if (v == layoutBizkaia) {
+            isBizkaia = true;
+            regiLayout.setEnabled(true);
+            fragmentTransaction();
+        } else if (v == layoutGipuzkoa) {
+            isGipuzkoa = true;
+            regiLayout.setEnabled(true);
+            fragmentTransaction();
+        }
+    }
+
+    private void fragmentTransaction() {
+        FragmentTransaction fragmentTransactionEmpty = fragmentManager.beginTransaction();
+        fragmentTransactionEmpty.setCustomAnimations(R.anim.scale_up, R.anim.scale_down);
+        fragmentTransactionEmpty.replace(R.id.fragmentLayouts, emptyQuestion);
+        fragmentTransactionEmpty.commit();
     }
 }

@@ -6,6 +6,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -29,6 +30,8 @@ public class QuestionsActivity extends AppCompatActivity implements View.OnTouch
     int contSwitch = 0;
     int contFinish = 0;
 
+    ImageView regiImage;
+
     FragmentManager fragmentManager = getSupportFragmentManager();
 
     @Override
@@ -36,10 +39,11 @@ public class QuestionsActivity extends AppCompatActivity implements View.OnTouch
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_generic_questions);
 
+        regiImage = findViewById(R.id.imageView);
         ta = findViewById(R.id.tv);
         ta.setText("");
         ta.setCharacterDelay(50);
-        ta.animateText(getResources().getString(R.string.txtEjemplo1));
+        ta.animateText(getResources().getString(R.string.txtReginald1));
         regiLayout = findViewById(R.id.regiLayout);
         regiLayout.setOnClickListener(this);
         regiLayout.setOnTouchListener(this);
@@ -61,7 +65,7 @@ public class QuestionsActivity extends AppCompatActivity implements View.OnTouch
                     regiLayout.setEnabled(false);
                     break;
 
-                case 6:
+                case 4:
                     FragmentTransaction fragmentTransactionGradeOrDegree = fragmentManager.beginTransaction();
                     fragmentTransactionGradeOrDegree.setCustomAnimations(R.anim.scale_up, R.anim.scale_down);
                     CareerOrGrade careerOrGrade = new CareerOrGrade();
@@ -69,7 +73,7 @@ public class QuestionsActivity extends AppCompatActivity implements View.OnTouch
                     fragmentTransactionGradeOrDegree.commit();
                     regiLayout.setEnabled(false);
                     break;
-                case 9:
+                case 5:
                     FragmentTransaction fragmentTransactionProvincia = fragmentManager.beginTransaction();
                     fragmentTransactionProvincia.setCustomAnimations(R.anim.scale_up, R.anim.scale_down);
                     ProvinciaQuestion provinciaQuestion = new ProvinciaQuestion();
@@ -101,36 +105,22 @@ public class QuestionsActivity extends AppCompatActivity implements View.OnTouch
             if (ta.textEnded()) {
                 switch (contSwitch) {
                     case 0:
+                        regiImage.startAnimation(carouselAnimation);
+                        regiImage.setVisibility(View.VISIBLE);
                         ta.setCharacterDelay(50);
-                        ta.animateText(getResources().getString(R.string.txtEjemplo2));
+                        ta.animateText(getResources().getString(R.string.txtReginald2));
                         break;
                     case 1:
                         ta.setCharacterDelay(50);
-                        ta.animateText(getResources().getString(R.string.txtEjemplo3));
+                        ta.animateText(getResources().getString(R.string.txtReginald3));
                         break;
                     case 2:
                         ta.setCharacterDelay(50);
-                        ta.animateText(getResources().getString(R.string.txtEjemplo4));
+                        ta.animateText(getResources().getString(R.string.txtReginald4));
                         break;
                     case 3:
                         ta.setCharacterDelay(50);
-                        ta.animateText(getResources().getString(R.string.txtEjemplo5));
-                        break;
-                    case 4:
-                        ta.setCharacterDelay(50);
-                        ta.animateText(getResources().getString(R.string.txtEjemplo6));
-                        break;
-                    case 5:
-                        ta.setCharacterDelay(50);
-                        ta.animateText(getResources().getString(R.string.txtEjemplo7));
-                        break;
-                    case 6:
-                        ta.setCharacterDelay(50);
-                        ta.animateText(getResources().getString(R.string.txtEjemplo8));
-                        break;
-                    case 7:
-                        ta.setCharacterDelay(50);
-                        ta.animateText(getResources().getString(R.string.txtEjemplo9));
+                        ta.animateText(getResources().getString(R.string.txtReginald5));
                         break;
                 }
                 contSwitch++;
