@@ -9,11 +9,9 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.orientacionescolar.main.DatabaseHelper;
 import com.example.orientacionescolar.R;
 import com.synnapps.carouselview.CarouselView;
 
@@ -21,7 +19,6 @@ public class MainActivity extends AppCompatActivity {
 
     CarouselView carouselView;
     Animation carouselAnimation, btnAnim;
-    DatabaseHelper databaseHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
         Button btnNext = findViewById(R.id.btnNext);
         btnNext.startAnimation(btnAnim);
         btnNext.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, InfoConsultingActivityVd.class)));
+        finish();
 
         carouselView.setViewListener(position -> {
 

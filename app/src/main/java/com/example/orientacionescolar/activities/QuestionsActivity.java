@@ -18,6 +18,7 @@ import com.example.orientacionescolar.main.TextAnimation;
 import com.example.orientacionescolar.questions.BranchQuestion;
 import com.example.orientacionescolar.questions.CareerOrGrade;
 import com.example.orientacionescolar.questions.ProvinciaQuestion;
+import com.example.orientacionescolar.questions.SuggestedDegreesQuestion;
 
 public class QuestionsActivity extends AppCompatActivity implements View.OnTouchListener, View.OnClickListener {
 
@@ -81,6 +82,14 @@ public class QuestionsActivity extends AppCompatActivity implements View.OnTouch
                     fragmentTransactionProvincia.commit();
                     regiLayout.setEnabled(false);
                     break;
+                case 6:
+                    FragmentTransaction fragmentTransactionGrados = fragmentManager.beginTransaction();
+                    fragmentTransactionGrados.setCustomAnimations(R.anim.scale_up, R.anim.scale_down);
+                    SuggestedDegreesQuestion suggestedDegrees = new SuggestedDegreesQuestion();
+                    fragmentTransactionGrados.replace(R.id.fragmentLayouts, suggestedDegrees);
+                    fragmentTransactionGrados.commit();
+                    regiLayout.setEnabled(false);
+                    break;
             }
         });
     }
@@ -121,6 +130,10 @@ public class QuestionsActivity extends AppCompatActivity implements View.OnTouch
                 case 3:
                     ta.setCharacterDelay(50);
                     ta.animateText(getResources().getString(R.string.txtReginald5));
+                    break;
+                case 4:
+                    ta.setCharacterDelay(50);
+                    ta.animateText(getResources().getString(R.string.txtReginald6));
                     break;
             }
             contSwitch++;

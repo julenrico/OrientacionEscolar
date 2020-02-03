@@ -45,6 +45,9 @@ public class CareerOrGrade extends Fragment implements View.OnClickListener {
         layoutGradoSuperior.setOnClickListener(this);
         layoutUniversidad.setOnClickListener(this);
 
+        layoutGradoSuperior.setEnabled(false);
+        layoutGradoMedio.setEnabled(false);
+
         regiLayout = ((QuestionsActivity) getActivity()).regiLayout;
 
         emptyQuestion = new EmptyQuestion();

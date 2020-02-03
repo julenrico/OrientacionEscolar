@@ -65,6 +65,14 @@ public class DatabaseHelper extends SQLiteAssetHelper {
         getWritableDatabase().execSQL("DELETE FROM fav_university_degrees WHERE degree_Id = ? and center_Id=?", new String [] {String.valueOf(universityDegree.getDegreeId()), String.valueOf(universityDegree.getCenter().getCenterId())});
     }
 
+    public void insertToSuggested(UniversityDegree universityDegree){
+        getWritableDatabase().execSQL("INSERT INTO suggested_university_degrees (degree_Id, center_Id) VALUES (?,?)", new String [] {String.valueOf(universityDegree.getDegreeId()), String.valueOf(universityDegree.getCenter().getCenterId())});
+    }
+    public void deleteFromSuggested(UniversityDegree universityDegree){
+        getWritableDatabase().execSQL("DELETE FROM fav_university_degrees WHERE degree_Id = ? and center_Id=?", new String [] {String.valueOf(universityDegree.getDegreeId()), String.valueOf(universityDegree.getCenter().getCenterId())});
+    }
+
+
     public ArrayList<UniversityDegree> getFavUniversityDegrees(){
 
         ArrayList<UniversityDegree> favUniversityDegrees = new ArrayList<>();
@@ -119,7 +127,7 @@ public class DatabaseHelper extends SQLiteAssetHelper {
         return universityDegrees;
     }
 
-    /*public ArrayList<UniversityDegree> getSuggestedUniversityDegrees(int suggestedBranchId, int provincia){
+    public ArrayList<UniversityDegree> getSuggestedUniversityDegrees(int suggestedBranchId, int provincia){
 
         ArrayList<UniversityDegree> suggestedUniversityDegrees = new ArrayList<>();
         Cursor c = getReadableDatabase().rawQuery("select * from university_degrees" +
@@ -127,9 +135,8 @@ public class DatabaseHelper extends SQLiteAssetHelper {
                 "    join university_degree_branches udb on university_degrees.degree_branch = udb.branch_id" +
                 "    join university_degree_centers udc on ucd.center_id = udc.center_id" +
                 "    join university_degree_campus u on udc.center_campus = u.campus_id" +
-                "    join suggested_university_degrees sad on university_degrees.degree_id = sad.degree_id" +
-                "    where university_degrees.degree_id = sad.degree_id and ucd.center_id = sad.center_id and udb.branch_id = suggestedBranchId and udc.campus_id = provincia" +
-                " order by degree_name asc",null);
+                "    where udb.branch_id = ? and u.campus_id = ?" +
+                " order by degree_name asc",new String [] {String.valueOf(suggestedBranchId), String.valueOf(provincia)},null);
         Log.d("CHORIPAN",String.valueOf(c.getCount()));
         c.moveToFirst();
         for (int i = 0; i < c.getCount(); i++) {
@@ -141,6 +148,6 @@ public class DatabaseHelper extends SQLiteAssetHelper {
         }
 
         return suggestedUniversityDegrees;
-    }*/
+    }
 
 }

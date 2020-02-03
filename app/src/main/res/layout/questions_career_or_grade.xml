@@ -10,7 +10,7 @@
         android:layout_width="395dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:background="@drawable/layout_bg_questions"
+        android:background="@drawable/ic_disabled_options"
         android:elevation="4dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -57,7 +57,7 @@
         android:layout_width="395dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:background="@drawable/layout_bg_questions"
+        android:background="@drawable/ic_disabled_options"
         android:elevation="4dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -94,6 +94,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:text="@string/txtGradoMedio"
+            android:textColor="@color/colorPrimaryDark"
             app:layout_constraintStart_toEndOf="@+id/imageViewMedio"
             app:layout_constraintTop_toBottomOf="@+id/textViewGradoMedio" />
     </androidx.constraintlayout.widget.ConstraintLayout>

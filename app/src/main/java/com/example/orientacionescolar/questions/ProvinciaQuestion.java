@@ -26,7 +26,7 @@ public class ProvinciaQuestion extends Fragment implements View.OnClickListener 
 
     private ConstraintLayout regiLayout;
 
-    public int provincia;
+    public static int provincia;
 
     @Nullable
     @Override

@@ -26,7 +26,7 @@ public class BranchQuestion extends Fragment implements View.OnClickListener {
     private ImageButton buttonEngineering;
     private ImageButton buttonLaw;
 
-    public int branchId;
+    public static int branchId;
 
     private TextAnimation textAnimation;
 
