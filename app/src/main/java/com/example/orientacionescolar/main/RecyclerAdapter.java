@@ -20,12 +20,12 @@ import java.util.List;
 
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.NumerosViewHolder> {
 
-    Context context;
+    private Context context;
     public List<UniversityDegree> universityDegrees;
 
     final private listItemClick listItemOnclickListener;
 
-    DatabaseHelper databaseHelper;
+    private DatabaseHelper databaseHelper;
 
     private ArrayList<UniversityDegree> universityDegreesFav;
 
