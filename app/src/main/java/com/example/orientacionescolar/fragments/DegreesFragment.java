@@ -55,6 +55,7 @@ public class DegreesFragment extends Fragment implements RecyclerAdapter.listIte
 
     }
 
+    /*Cargar la recycler con los datos de los favoritos o todos los grados dependiendo del parámetro de entrada*/
     void setFav(boolean fav) {
         RecyclerAdapter adapter;
         if (fav) {

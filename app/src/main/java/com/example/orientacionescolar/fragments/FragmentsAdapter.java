@@ -25,6 +25,7 @@ public class FragmentsAdapter extends FragmentPagerAdapter {
         mContext = context;
     }
 
+    /*Dependiendo del Tab en el que estés, devuelve un fragment diferente*/
     @NonNull
     @Override
     public Fragment getItem(int position) {
@@ -48,9 +49,10 @@ public class FragmentsAdapter extends FragmentPagerAdapter {
         return mContext.getResources().getString(TAB_TITLES[position]);
     }
 
+    // Cantidad de Tabs a mostrar
     @Override
     public int getCount() {
-        // Show 3 total pages.
+
         return 3;
     }
 

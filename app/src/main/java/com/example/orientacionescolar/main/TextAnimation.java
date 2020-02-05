@@ -20,6 +20,7 @@ public class TextAnimation extends AppCompatTextView {
         super(context, attrs);
     }
 
+    /*Hilo de la animación*/
     private Handler mHandler = new Handler();
     private Runnable characterAdder = new Runnable() {
         @Override
@@ -36,6 +37,7 @@ public class TextAnimation extends AppCompatTextView {
         }
     };
 
+    /*Animación del texto*/
     public void animateText(CharSequence txt) {
         mText = txt;
         mIndex = 0;
@@ -53,20 +55,12 @@ public class TextAnimation extends AppCompatTextView {
         return mIndex == mText.length();
     }
 
-    public TextAnimationListener getListener() {
-        return listener;
-    }
-
     public void setListener(TextAnimationListener listener) {
         this.listener = listener;
     }
 
     public interface TextAnimationListener {
         void onFinish();
-    }
-
-    public void endText() {
-        setText(mText);
     }
 
 }

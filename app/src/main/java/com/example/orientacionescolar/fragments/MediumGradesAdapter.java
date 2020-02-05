@@ -12,6 +12,8 @@ import androidx.fragment.app.Fragment;
 
 import com.example.orientacionescolar.R;
 
+/*Es lo mismo que DegreesFragment. Lo dejo para coger los datos de una API con retrofit para final de curso.*/
+
 public class MediumGradesAdapter extends Fragment {
 
     @Override

@@ -15,6 +15,8 @@ import androidx.fragment.app.FragmentTransaction;
 import com.example.orientacionescolar.R;
 import com.example.orientacionescolar.activities.QuestionsActivity;
 
+/*Para fin de curso, cuando tenga los datos de los grados superiores y grados medios, poder elegir grado superior o grado medio*/
+
 public class CareerOrGrade extends Fragment implements View.OnClickListener {
 
     private EmptyQuestion emptyQuestion;
@@ -25,10 +27,6 @@ public class CareerOrGrade extends Fragment implements View.OnClickListener {
     private ConstraintLayout layoutUniversidad;
 
     private ConstraintLayout regiLayout;
-
-    public boolean isUniversityDegree;
-    public boolean isHighGrade;
-    public boolean isMediumGrade;
 
     @Nullable
     @Override
@@ -58,15 +56,15 @@ public class CareerOrGrade extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         if (v == layoutGradoMedio) {
-            isMediumGrade = true;
+            boolean isMediumGrade = true;
             regiLayout.setEnabled(true);
             fragmentTransaction();
         } else if (v == layoutGradoSuperior) {
-            isHighGrade = true;
+            boolean isHighGrade = true;
             regiLayout.setEnabled(true);
             fragmentTransaction();
         } else if (v == layoutUniversidad) {
-            isUniversityDegree = true;
+            boolean isUniversityDegree = true;
             regiLayout.setEnabled(true);
             fragmentTransaction();
         }

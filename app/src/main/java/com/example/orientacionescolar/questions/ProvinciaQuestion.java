@@ -15,6 +15,8 @@ import androidx.fragment.app.FragmentTransaction;
 import com.example.orientacionescolar.R;
 import com.example.orientacionescolar.activities.QuestionsActivity;
 
+/*Fragment que maneja la pregunta de la provincia*/
+
 public class ProvinciaQuestion extends Fragment implements View.OnClickListener {
 
     private EmptyQuestion emptyQuestion;
@@ -49,6 +51,7 @@ public class ProvinciaQuestion extends Fragment implements View.OnClickListener 
         return root;
     }
 
+    /*Al clickar en una provincia, habilitar el cuadro de texto y guardar resusltado en variable publica a la que accedo para la consulta dinámica de grados sugeridos*/
     @Override
     public void onClick(View v) {
         if (v == layoutAraba) {

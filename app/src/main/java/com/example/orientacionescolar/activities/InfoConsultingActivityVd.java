@@ -69,6 +69,7 @@ public class InfoConsultingActivityVd extends AppCompatActivity {
             }
         });
 
+
         fab1.setOnClickListener(view -> {
             closeFABMenu();
             isFABOpen = false;
@@ -90,6 +91,8 @@ public class InfoConsultingActivityVd extends AppCompatActivity {
 
         fabBGLayout.setOnClickListener(view -> closeFABMenu());
     }
+
+    /*Métodos del Floating Action Button*/
 
     private void showFABMenu() {
         isFABOpen = true;

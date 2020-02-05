@@ -100,13 +100,14 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Numero
 
             likeButton.setLiked(universityDegreesFav.contains(degree));
 
+            /*Darle al corazón para añadir o eliminar de favoritos*/
             likeButton.setOnLikeListener(new OnLikeListener() {
                 @Override
                 public void liked(LikeButton likeButton) {
                     //ADD TO FAV
                     databaseHelper.insertToFav(universityDegrees.get(listaIndex));
                     universityDegreesFav = databaseHelper.getFavUniversityDegrees();
-                    Toast.makeText(context, "Grado guardado en Favoritos.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, "Añadido a Favoritos.", Toast.LENGTH_SHORT).show();
                     notifyDataSetChanged();
                 }
 
@@ -115,7 +116,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Numero
                     //QUIT FROM FAV
                     databaseHelper.deleteFromFav(universityDegrees.get(listaIndex));
                     universityDegreesFav = databaseHelper.getFavUniversityDegrees();
-                    Toast.makeText(context, "Grado eliminado de Favoritos.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, "Eliminado de Favoritos.", Toast.LENGTH_SHORT).show();
                     notifyDataSetChanged();
 
                 }
@@ -125,6 +126,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Numero
         @Override
         public void onClick(View v) {
 
+            /*Para fin de curso, al clickar en un grado, mostrar info sobre ese grado*/
             int clickedItem = getAdapterPosition();
 
             listItemOnclickListener.onListItemClick(clickedItem);

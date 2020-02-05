@@ -14,12 +14,12 @@ public class DatabaseHelper extends SQLiteAssetHelper {
     private static final String DATABASE_NAME = "orientacionescolar.sqlite";
     private static final int DATABASE_VERSION = 1;
 
-    public final String COUNT_UNIVERSITY_DEGREES = "SELECT COUNT(*) FROM university_degrees";
+    /*public final String COUNT_UNIVERSITY_DEGREES = "SELECT COUNT(*) FROM university_degrees";
 
     public final String GET_UNIVERSITY_DEGREES = "SELECT * FROM university_degrees";
     public final String GET_UNIVERSITY_DEGREES_BRANCHES = "SELECT * FROM university_degree_branches";
     public final String GET_UNIVERSITY_DEGREES_CAMPUS = "SELECT * FROM university_degree_campus";
-    public final String GET_UNIVERSITY_DEGREES_CENTERS = "SELECT * FROM university_degree_centers";
+    public final String GET_UNIVERSITY_DEGREES_CENTERS = "SELECT * FROM university_degree_centers";*/
 
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -30,9 +30,9 @@ public class DatabaseHelper extends SQLiteAssetHelper {
 
     }
 
-    /*Functions to insert data */
+    /*Todos los insert y delete*/
 
-    public void insertBranch(SQLiteDatabase db, int branchId, String branchName){
+    /*public void insertBranch(SQLiteDatabase db, int branchId, String branchName){
 
         db.execSQL("INSERT INTO university_degree_branches (branch_Id, branch_Name) VALUES (?,?)",new String [] {String.valueOf(branchId),String.valueOf(branchName)});
     }
@@ -57,23 +57,24 @@ public class DatabaseHelper extends SQLiteAssetHelper {
         db.execSQL("INSERT INTO university_center_degrees (center_Id, degree_Id) VALUES (?,?)",new String [] {String.valueOf(centerId),String.valueOf(degreeId)});
     }
 
-    public void insertToFav(UniversityDegree universityDegree){
-        getWritableDatabase().execSQL("INSERT INTO fav_university_degrees (degree_Id, center_Id) VALUES (?,?)", new String [] {String.valueOf(universityDegree.getDegreeId()), String.valueOf(universityDegree.getCenter().getCenterId())});
-    }
-
-    public void deleteFromFav(UniversityDegree universityDegree){
-        getWritableDatabase().execSQL("DELETE FROM fav_university_degrees WHERE degree_Id = ? and center_Id=?", new String [] {String.valueOf(universityDegree.getDegreeId()), String.valueOf(universityDegree.getCenter().getCenterId())});
-    }
-
     public void insertToSuggested(UniversityDegree universityDegree){
         getWritableDatabase().execSQL("INSERT INTO suggested_university_degrees (degree_Id, center_Id) VALUES (?,?)", new String [] {String.valueOf(universityDegree.getDegreeId()), String.valueOf(universityDegree.getCenter().getCenterId())});
     }
     public void deleteFromSuggested(UniversityDegree universityDegree){
         getWritableDatabase().execSQL("DELETE FROM fav_university_degrees WHERE degree_Id = ? and center_Id=?", new String [] {String.valueOf(universityDegree.getDegreeId()), String.valueOf(universityDegree.getCenter().getCenterId())});
+    }*/
+
+    public void insertToFav(UniversityDegree universityDegree) {
+        getWritableDatabase().execSQL("INSERT INTO fav_university_degrees (degree_Id, center_Id) VALUES (?,?)", new String[]{String.valueOf(universityDegree.getDegreeId()), String.valueOf(universityDegree.getCenter().getCenterId())});
+    }
+
+    public void deleteFromFav(UniversityDegree universityDegree) {
+        getWritableDatabase().execSQL("DELETE FROM fav_university_degrees WHERE degree_Id = ? and center_Id=?", new String[]{String.valueOf(universityDegree.getDegreeId()), String.valueOf(universityDegree.getCenter().getCenterId())});
     }
 
 
-    public ArrayList<UniversityDegree> getFavUniversityDegrees(){
+    /*Select de los grados favoritos*/
+    public ArrayList<UniversityDegree> getFavUniversityDegrees() {
 
         ArrayList<UniversityDegree> favUniversityDegrees = new ArrayList<>();
         Cursor c = getReadableDatabase().rawQuery("select * from university_degrees" +
@@ -83,51 +84,53 @@ public class DatabaseHelper extends SQLiteAssetHelper {
                 "    join university_degree_campus u on udc.center_campus = u.campus_id" +
                 "    join fav_university_degrees fad on university_degrees.degree_id = fad.degree_id" +
                 "    where university_degrees.degree_id = fad.degree_id and ucd.center_id = fad.center_id" +
-                " order by degree_name asc",null);
-        Log.d("CHORIPAN",String.valueOf(c.getCount()));
+                " order by degree_name asc", null);
+        Log.d("CHORIPAN", String.valueOf(c.getCount()));
         c.moveToFirst();
         for (int i = 0; i < c.getCount(); i++) {
-            UniversityDegreeBranch branch = new UniversityDegreeBranch(c.getInt(5),c.getString(6));
-            UniversityDegreeCampus campus = new UniversityDegreeCampus(c.getInt(10),c.getString(11));
-            UniversityDegreeCenter center = new UniversityDegreeCenter(c.getInt(3),c.getString(8),campus);
-            favUniversityDegrees.add(new UniversityDegree(c.getInt(0),c.getString(1),branch,campus,center));
+            UniversityDegreeBranch branch = new UniversityDegreeBranch(c.getInt(5), c.getString(6));
+            UniversityDegreeCampus campus = new UniversityDegreeCampus(c.getInt(10), c.getString(11));
+            UniversityDegreeCenter center = new UniversityDegreeCenter(c.getInt(3), c.getString(8), campus);
+            favUniversityDegrees.add(new UniversityDegree(c.getInt(0), c.getString(1), branch, campus, center));
             c.moveToNext();
         }
 
         return favUniversityDegrees;
     }
 
-    public int getCountDegrees(){
+    /*public int getCountDegrees(){
         Cursor c = getReadableDatabase().rawQuery(COUNT_UNIVERSITY_DEGREES,null);
         if(!c.moveToFirst()){
             return 0;
         }
         return c.getCount();
-    }
+    }*/
 
 
-    public ArrayList<UniversityDegree> getUniversityDegrees(){
+    /*Select de todos los grados universitarios*/
+    public ArrayList<UniversityDegree> getUniversityDegrees() {
 
         ArrayList<UniversityDegree> universityDegrees = new ArrayList<>();
         Cursor c = getReadableDatabase().rawQuery("select * from university_degrees" +
                 "    join university_center_degrees ucd on university_degrees.degree_id = ucd.degree_id" +
                 "    join university_degree_branches udb on university_degrees.degree_branch = udb.branch_id" +
                 "    join university_degree_centers udc on ucd.center_id = udc.center_id" +
-                "    join university_degree_campus u on udc.center_campus = u.campus_id order by degree_name asc",null);
-        Log.d("CHORIPAN",String.valueOf(c.getCount()));
+                "    join university_degree_campus u on udc.center_campus = u.campus_id order by degree_name asc", null);
+        Log.d("CHORIPAN", String.valueOf(c.getCount()));
         c.moveToFirst();
         for (int i = 0; i < c.getCount(); i++) {
-            UniversityDegreeBranch branch = new UniversityDegreeBranch(c.getInt(5),c.getString(6));
-            UniversityDegreeCampus campus = new UniversityDegreeCampus(c.getInt(10),c.getString(11));
-            UniversityDegreeCenter center = new UniversityDegreeCenter(c.getInt(3),c.getString(8),campus);
-            universityDegrees.add(new UniversityDegree(c.getInt(0),c.getString(1),branch,campus,center));
+            UniversityDegreeBranch branch = new UniversityDegreeBranch(c.getInt(5), c.getString(6));
+            UniversityDegreeCampus campus = new UniversityDegreeCampus(c.getInt(10), c.getString(11));
+            UniversityDegreeCenter center = new UniversityDegreeCenter(c.getInt(3), c.getString(8), campus);
+            universityDegrees.add(new UniversityDegree(c.getInt(0), c.getString(1), branch, campus, center));
             c.moveToNext();
         }
 
         return universityDegrees;
     }
 
-    public ArrayList<UniversityDegree> getSuggestedUniversityDegrees(int suggestedBranchId, int provincia){
+    /*Select de los grados sugeridos en el test*/
+    public ArrayList<UniversityDegree> getSuggestedUniversityDegrees(int suggestedBranchId, int provincia) {
 
         ArrayList<UniversityDegree> suggestedUniversityDegrees = new ArrayList<>();
         Cursor c = getReadableDatabase().rawQuery("select * from university_degrees" +
@@ -136,14 +139,14 @@ public class DatabaseHelper extends SQLiteAssetHelper {
                 "    join university_degree_centers udc on ucd.center_id = udc.center_id" +
                 "    join university_degree_campus u on udc.center_campus = u.campus_id" +
                 "    where udb.branch_id = ? and u.campus_id = ?" +
-                " order by degree_name asc",new String [] {String.valueOf(suggestedBranchId), String.valueOf(provincia)},null);
-        Log.d("CHORIPAN",String.valueOf(c.getCount()));
+                " order by degree_name asc", new String[]{String.valueOf(suggestedBranchId), String.valueOf(provincia)}, null);
+        Log.d("CHORIPAN", String.valueOf(c.getCount()));
         c.moveToFirst();
         for (int i = 0; i < c.getCount(); i++) {
-            UniversityDegreeBranch branch = new UniversityDegreeBranch(c.getInt(5),c.getString(6));
-            UniversityDegreeCampus campus = new UniversityDegreeCampus(c.getInt(10),c.getString(11));
-            UniversityDegreeCenter center = new UniversityDegreeCenter(c.getInt(3),c.getString(8),campus);
-            suggestedUniversityDegrees.add(new UniversityDegree(c.getInt(0),c.getString(1),branch,campus,center));
+            UniversityDegreeBranch branch = new UniversityDegreeBranch(c.getInt(5), c.getString(6));
+            UniversityDegreeCampus campus = new UniversityDegreeCampus(c.getInt(10), c.getString(11));
+            UniversityDegreeCenter center = new UniversityDegreeCenter(c.getInt(3), c.getString(8), campus);
+            suggestedUniversityDegrees.add(new UniversityDegree(c.getInt(0), c.getString(1), branch, campus, center));
             c.moveToNext();
         }
 

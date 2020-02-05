@@ -26,14 +26,12 @@ public class BranchQuestion extends Fragment implements View.OnClickListener {
     private ImageButton buttonEngineering;
     private ImageButton buttonLaw;
 
-    public static int branchId;
-
-    private TextAnimation textAnimation;
+    static int branchId;
 
     private EmptyQuestion emptyQuestion;
     private FragmentManager fragmentManager;
 
-    ConstraintLayout regiLayout;
+    private ConstraintLayout regiLayout;
 
     @Nullable
     @Override
@@ -53,8 +51,6 @@ public class BranchQuestion extends Fragment implements View.OnClickListener {
         buttonEngineering.setOnClickListener(this);
         buttonLaw.setOnClickListener(this);
 
-        textAnimation = ((QuestionsActivity) getActivity()).findViewById(R.id.tv);
-
         regiLayout = ((QuestionsActivity) getActivity()).regiLayout;
 
         fragmentManager = getActivity().getSupportFragmentManager();
@@ -63,6 +59,7 @@ public class BranchQuestion extends Fragment implements View.OnClickListener {
         return root;
     }
 
+    /*Habilitar el cuadro de texto y cambiar de fragment*/
     @Override
     public void onClick(View v) {
 
@@ -89,6 +86,7 @@ public class BranchQuestion extends Fragment implements View.OnClickListener {
         }
     }
 
+    /*Cambiar de fragment*/
     public void fragmentTransaction() {
         FragmentTransaction fragmentTransactionEmpty = fragmentManager.beginTransaction();
         fragmentTransactionEmpty.setCustomAnimations(R.anim.scale_up, R.anim.scale_down);

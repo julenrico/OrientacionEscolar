@@ -49,9 +49,11 @@ public class QuestionsActivity extends AppCompatActivity implements View.OnTouch
         regiLayout.setOnClickListener(this);
         regiLayout.setOnTouchListener(this);
 
+        /*Cargar animaciones*/
         carouselAnimation = AnimationUtils.loadAnimation(this, R.anim.carousel_animation);
         btnAnim = AnimationUtils.loadAnimation(this, R.anim.button_animation);
 
+        /*Controlar qué texto ha acabado de mostrarse y en base a eso, cargar otro fragment*/
         ta.setListener(() -> {
             contFinish++;
             Log.d("CONTFINISH", String.valueOf(contFinish));
@@ -94,6 +96,7 @@ public class QuestionsActivity extends AppCompatActivity implements View.OnTouch
         });
     }
 
+    /*Manejar el tocar el cuadro de texto. Si ha acabado el texto, ejecutar el onclick, si no, texto a más velocidad*/
     @Override
     public boolean onTouch(View v, MotionEvent event) {
         if (event.getAction() == MotionEvent.ACTION_DOWN) {
@@ -109,6 +112,7 @@ public class QuestionsActivity extends AppCompatActivity implements View.OnTouch
         return false;
     }
 
+    /*Cada click, pasa al siguiente texto*/
     @Override
     public void onClick(View v) {
         if (ta.textEnded()) {

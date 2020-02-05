@@ -11,6 +11,8 @@ import androidx.fragment.app.Fragment;
 
 import com.example.orientacionescolar.R;
 
+/*Fragment vacío para cargar entre dos fragment de pregunta*/
+
 public class EmptyQuestion extends Fragment {
     @Nullable
     @Override

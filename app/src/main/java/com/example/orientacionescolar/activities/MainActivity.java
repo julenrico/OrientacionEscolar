@@ -26,11 +26,13 @@ public class MainActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_main);
 
+        /*Pedir permisos de Lectura/Escritura*/
         requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE}, 123);
 
         carouselView = findViewById(R.id.carouselView);
         carouselView.setPageCount(3);
 
+        /*Cargar animación*/
         carouselAnimation = AnimationUtils.loadAnimation(this, R.anim.carousel_animation);
         carouselView.startAnimation(carouselAnimation);
 
@@ -49,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
             TextView txtFrase = view.findViewById(R.id.txtFrase);
             TextView txtParrafo = view.findViewById(R.id.txtParrafo);
 
+            /*Manejar textos del carousel*/
             switch (position) {
                 case 0:
                     imgView.setBackground(getResources().getDrawable(R.drawable.ic_image_carousel1, null));
