@@ -36,10 +36,11 @@ public class InfoConsultingActivityVd extends AppCompatActivity {
                 .getBoolean("isFirstRun", true);
 
         if (isFirstRun) {
+            getSharedPreferences("PREFERENCE", MODE_PRIVATE).edit()
+                    .putBoolean("isFirstRun", false).apply();
             startActivity(new Intent(InfoConsultingActivityVd.this, MainActivity.class));
         }
-        getSharedPreferences("PREFERENCE", MODE_PRIVATE).edit()
-                .putBoolean("isFirstRun", false).apply();
+
 
         setContentView(R.layout.activity_info_consulting_vd);
         FragmentsAdapter fragmentsAdapter = new FragmentsAdapter(this, getSupportFragmentManager());

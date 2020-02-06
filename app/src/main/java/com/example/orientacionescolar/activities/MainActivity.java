@@ -41,8 +41,11 @@ public class MainActivity extends AppCompatActivity {
         btnAnim = AnimationUtils.loadAnimation(this, R.anim.button_animation);
         Button btnNext = findViewById(R.id.btnNext);
         btnNext.startAnimation(btnAnim);
-        btnNext.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, InfoConsultingActivityVd.class)));
-        finish();
+        btnNext.setOnClickListener(v -> {
+            startActivity(new Intent(MainActivity.this, InfoConsultingActivityVd.class));
+            finish();
+        });
+
 
         carouselView.setViewListener(position -> {
 
