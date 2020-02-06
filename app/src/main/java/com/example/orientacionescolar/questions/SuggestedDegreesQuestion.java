@@ -1,6 +1,5 @@
 package com.example.orientacionescolar.questions;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,7 +12,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.orientacionescolar.R;
-import com.example.orientacionescolar.activities.InfoConsultingActivityVd;
 import com.example.orientacionescolar.main.DatabaseHelper;
 import com.example.orientacionescolar.main.RecyclerAdapter;
 
@@ -40,10 +38,7 @@ public class SuggestedDegreesQuestion extends Fragment implements RecyclerAdapte
         View root = inflater.inflate(R.layout.questions_suggested_degree, container, false);
 
         Button buttonContinuar = root.findViewById(R.id.buttonContinuar);
-        buttonContinuar.setOnClickListener(v -> {
-            startActivity(new Intent(getActivity(), InfoConsultingActivityVd.class));
-            getActivity().finish();
-        });
+        buttonContinuar.setOnClickListener(v -> getActivity().finish());
 
         RecyclerView recyclerView2 = root.findViewById(R.id.recyclerView2);
 

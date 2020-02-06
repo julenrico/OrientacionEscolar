@@ -3,6 +3,7 @@
 
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -10,14 +11,14 @@
         android:id="@+id/lawsLayout"
         android:layout_width="133dp"
         android:layout_height="164dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="52dp"
-        android:layout_marginBottom="242dp"
+        android:layout_marginTop="21dp"
+        android:layout_marginEnd="58dp"
+        android:layout_marginBottom="165dp"
         android:background="@drawable/layout_button_bg"
         android:elevation="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/healthButton">
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
 
         <ImageButton
             android:id="@+id/buttonLaw"
@@ -33,8 +34,8 @@
 
         <TextView
             android:id="@+id/textView13"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
+            android:layout_width="106dp"
+            android:layout_height="39dp"
             android:layout_marginBottom="5dp"
             android:text="Sociales Jurídicas"
             android:textAlignment="center"
@@ -45,50 +46,51 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/healthButton"
+        android:id="@+id/constraintLayout"
         android:layout_width="130dp"
         android:layout_height="160dp"
-        android:layout_marginTop="140dp"
-        android:layout_marginEnd="5dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="221dp"
+        android:layout_marginEnd="3dp"
         android:background="@drawable/layout_button_bg"
         android:elevation="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/healthButton"
+        app:layout_constraintStart_toEndOf="@+id/constraintLayout3"
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageButton
-            android:id="@+id/buttonHealth"
+            android:id="@+id/buttonScience"
             android:layout_width="115dp"
             android:layout_height="115dp"
             android:layout_marginStart="5dp"
             android:layout_marginTop="5dp"
             android:layout_marginEnd="5dp"
-            android:background="@drawable/ic_health"
+            android:background="@drawable/ic_science"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textView10"
+            android:id="@+id/textView11"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="11dp"
+            android:layout_marginTop="6dp"
             android:layout_marginBottom="11dp"
-            android:text="Salud"
+            android:text="Ciencias"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/buttonHealth"
-            app:layout_constraintVertical_bias="1.0" />
-
+            app:layout_constraintTop_toBottomOf="@+id/buttonScience" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout2"
         android:layout_width="130dp"
         android:layout_height="165dp"
-        android:layout_marginStart="52dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginBottom="242dp"
+        android:layout_marginStart="58dp"
+        android:layout_marginTop="21dp"
+        android:layout_marginBottom="164dp"
         android:background="@drawable/layout_button_bg"
         android:elevation="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -123,51 +125,13 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout"
+        android:id="@+id/constraintLayout3"
         android:layout_width="130dp"
         android:layout_height="160dp"
-        android:layout_marginTop="140dp"
-        android:layout_marginEnd="4dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="221dp"
         android:background="@drawable/layout_button_bg"
         android:elevation="8dp"
-        app:layout_constraintEnd_toStartOf="@+id/healthButton"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <ImageButton
-            android:id="@+id/buttonScience"
-            android:layout_width="115dp"
-            android:layout_height="115dp"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginEnd="5dp"
-            android:background="@drawable/ic_science"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/textView11"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:layout_marginBottom="11dp"
-            android:text="Ciencias"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/buttonScience" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="130dp"
-        android:layout_height="160dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="140dp"
-        android:layout_marginEnd="5dp"
-        android:background="@drawable/layout_button_bg"
-        android:elevation="8dp"
-        app:layout_constraintEnd_toStartOf="@+id/constraintLayout"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -193,6 +157,45 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/healthButton"
+        android:layout_width="130dp"
+        android:layout_height="160dp"
+        android:layout_marginTop="221dp"
+        android:layout_marginEnd="4dp"
+        android:background="@drawable/layout_button_bg"
+        android:elevation="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/buttonHealth"
+            android:layout_width="115dp"
+            android:layout_height="115dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
+            android:background="@drawable/ic_health"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="11dp"
+            android:layout_marginBottom="11dp"
+            android:text="Salud"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/buttonHealth"
+            app:layout_constraintVertical_bias="1.0" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
