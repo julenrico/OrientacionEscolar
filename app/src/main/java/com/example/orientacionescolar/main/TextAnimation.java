@@ -7,9 +7,9 @@ import android.util.AttributeSet;
 import androidx.appcompat.widget.AppCompatTextView;
 
 public class TextAnimation extends AppCompatTextView {
-    private CharSequence mText;
-    private int mIndex;
-    private long mDelay = 150;
+    private CharSequence sequence;
+    private int index;
+    private long animationDelay = 150;
     public TextAnimationListener listener;
 
     public TextAnimation(Context context) {
@@ -21,14 +21,14 @@ public class TextAnimation extends AppCompatTextView {
     }
 
     /*Hilo de la animación*/
-    private Handler mHandler = new Handler();
+    private Handler handler = new Handler();
     private Runnable characterAdder = new Runnable() {
         @Override
         public void run() {
-            setText(mText.subSequence(0, mIndex++));
+            setText(sequence.subSequence(0, index++));
 
-            if (mIndex < mText.length()) {
-                mHandler.postDelayed(characterAdder, mDelay);
+            if (index < sequence.length()) {
+                handler.postDelayed(characterAdder, animationDelay);
             } else {
                 if (listener != null) {
                     listener.onFinish();
@@ -39,20 +39,20 @@ public class TextAnimation extends AppCompatTextView {
 
     /*Animación del texto*/
     public void animateText(CharSequence txt) {
-        mText = txt;
-        mIndex = 0;
+        sequence = txt;
+        index = 0;
 
         setText("");
-        mHandler.removeCallbacks(characterAdder);
-        mHandler.postDelayed(characterAdder, mDelay);
+        handler.removeCallbacks(characterAdder);
+        handler.postDelayed(characterAdder, animationDelay);
     }
 
     public void setCharacterDelay(long m) {
-        mDelay = m;
+        animationDelay = m;
     }
 
     public boolean textEnded() {
-        return mIndex == mText.length();
+        return index == sequence.length();
     }
 
     public void setListener(TextAnimationListener listener) {

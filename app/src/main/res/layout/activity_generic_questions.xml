@@ -12,12 +12,14 @@
         android:id="@+id/regiLayout"
         android:layout_width="396dp"
         android:layout_height="145dp"
+        android:layout_marginStart="8dp"
         android:layout_marginEnd="7dp"
         android:layout_marginBottom="7dp"
         android:background="@drawable/text_dialog_bg"
         android:elevation="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
         <ImageView
             android:id="@+id/imageView"
@@ -60,8 +62,10 @@
         android:id="@+id/fl"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
         android:layout_marginEnd="1dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <fragment
