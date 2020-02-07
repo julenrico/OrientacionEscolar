@@ -20,11 +20,11 @@ import com.example.orientacionescolar.activities.QuestionsActivity;
 
 public class BranchQuestion extends Fragment implements View.OnClickListener {
 
-    private ImageButton buttonArt;
-    private ImageButton buttonScience;
-    private ImageButton buttonHealth;
-    private ImageButton buttonEngineering;
-    private ImageButton buttonLaw;
+    private ConstraintLayout artsLayout;
+    private ConstraintLayout sciencesLayout;
+    private ConstraintLayout healthLayout;
+    private ConstraintLayout engineeringLayout;
+    private ConstraintLayout lawsLayout;
 
     static int branchId;
 
@@ -39,17 +39,17 @@ public class BranchQuestion extends Fragment implements View.OnClickListener {
 
         View root = inflater.inflate(R.layout.questions_branch, container, false);
 
-        buttonArt = root.findViewById(R.id.buttonArt);
-        buttonScience = root.findViewById(R.id.buttonScience);
-        buttonHealth = root.findViewById(R.id.buttonHealth);
-        buttonEngineering = root.findViewById(R.id.buttonEngineering);
-        buttonLaw = root.findViewById(R.id.buttonLaw);
+        artsLayout = root.findViewById(R.id.artsLayout);
+        sciencesLayout = root.findViewById(R.id.sciencesLayout);
+        healthLayout = root.findViewById(R.id.healthLayout);
+        engineeringLayout = root.findViewById(R.id.engineeringLayout);
+        lawsLayout = root.findViewById(R.id.lawsLayout);
 
-        buttonArt.setOnClickListener(this);
-        buttonScience.setOnClickListener(this);
-        buttonHealth.setOnClickListener(this);
-        buttonEngineering.setOnClickListener(this);
-        buttonLaw.setOnClickListener(this);
+        artsLayout.setOnClickListener(this);
+        sciencesLayout.setOnClickListener(this);
+        healthLayout.setOnClickListener(this);
+        engineeringLayout.setOnClickListener(this);
+        lawsLayout.setOnClickListener(this);
 
         regiLayout = ((QuestionsActivity) getActivity()).regiLayout;
 
@@ -63,23 +63,23 @@ public class BranchQuestion extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View v) {
 
-        if (v == buttonArt) {
+        if (v == artsLayout) {
             branchId = 1;
             regiLayout.setEnabled(true);
             fragmentTransaction();
-        } else if (v == buttonScience) {
+        } else if (v == sciencesLayout) {
             branchId = 2;
             regiLayout.setEnabled(true);
             fragmentTransaction();
-        } else if (v == buttonHealth) {
+        } else if (v == healthLayout) {
             branchId = 3;
             regiLayout.setEnabled(true);
             fragmentTransaction();
-        } else if (v == buttonLaw) {
+        } else if (v == lawsLayout) {
             branchId = 4;
             regiLayout.setEnabled(true);
             fragmentTransaction();
-        } else if (v == buttonEngineering) {
+        } else if (v == engineeringLayout) {
             branchId = 5;
             regiLayout.setEnabled(true);
             fragmentTransaction();
