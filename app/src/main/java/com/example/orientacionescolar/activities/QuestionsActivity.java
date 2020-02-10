@@ -26,12 +26,17 @@ public class QuestionsActivity extends AppCompatActivity implements View.OnTouch
 
     public ConstraintLayout regiLayout;
 
-    Animation carouselAnimation, btnAnim;
+    Animation carouselAnimation;
+    Animation btnAnim;
+    Animation blinkAnimation;
+
+    Thread thread;
 
     int contSwitch = 0;
     int contFinish = 0;
 
     ImageView regiImage;
+    ImageView imageViewTriangle;
 
     FragmentManager fragmentManager = getSupportFragmentManager();
 
@@ -41,6 +46,7 @@ public class QuestionsActivity extends AppCompatActivity implements View.OnTouch
         setContentView(R.layout.activity_generic_questions);
 
         regiImage = findViewById(R.id.imageView);
+        imageViewTriangle = findViewById(R.id.imageViewTriangle);
         ta = findViewById(R.id.tv);
         ta.setText("");
         ta.setCharacterDelay(50);
@@ -50,12 +56,17 @@ public class QuestionsActivity extends AppCompatActivity implements View.OnTouch
         regiLayout.setOnTouchListener(this);
 
         /*Cargar animaciones*/
+
         carouselAnimation = AnimationUtils.loadAnimation(this, R.anim.carousel_animation);
         btnAnim = AnimationUtils.loadAnimation(this, R.anim.button_animation);
+        blinkAnimation = AnimationUtils.loadAnimation(this, R.anim.blink_animation);
 
         /*Controlar qué texto ha acabado de mostrarse y en base a eso, cargar otro fragment*/
         ta.setListener(() -> {
             contFinish++;
+            imageViewTriangle.setVisibility(View.VISIBLE);
+            thread = new Thread(() -> imageViewTriangle.startAnimation(blinkAnimation));
+            thread.start();
             Log.d("CONTFINISH", String.valueOf(contFinish));
             switch (contFinish) {
 
@@ -99,6 +110,7 @@ public class QuestionsActivity extends AppCompatActivity implements View.OnTouch
     /*Manejar el tocar el cuadro de texto. Si ha acabado el texto, ejecutar el onclick, si no, texto a más velocidad*/
     @Override
     public boolean onTouch(View v, MotionEvent event) {
+
         if (event.getAction() == MotionEvent.ACTION_DOWN) {
             if (ta.textEnded()) {
                 v.performClick();
@@ -115,6 +127,9 @@ public class QuestionsActivity extends AppCompatActivity implements View.OnTouch
     /*Cada click, pasa al siguiente texto*/
     @Override
     public void onClick(View v) {
+        thread.interrupt();
+        imageViewTriangle.clearAnimation();
+        imageViewTriangle.setVisibility(View.INVISIBLE);
         if (ta.textEnded()) {
             switch (contSwitch) {
                 case 0:
@@ -143,5 +158,7 @@ public class QuestionsActivity extends AppCompatActivity implements View.OnTouch
             contSwitch++;
         }
     }
+
+
     //TODO: MAKE DOUBLE CLICK EVENT
 }
