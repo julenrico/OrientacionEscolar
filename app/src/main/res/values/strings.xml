@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">OrientacionEscolar</string>
+    <string name="app_name">Skola</string>
 
     <string name="slideFrase1">Contesta</string>
     <string name="slideFrase2">Descúbrete</string>
@@ -15,10 +15,6 @@
     <string name="txtReginald4">¿Qué nivel de estudios te gustaría realizar?.</string>
     <string name="txtReginald5">¿Dónde te gustaría realizar los estudios?.</string>
     <string name="txtReginald6">En base a las respuestas, es posible que te gusten estos grados. Añade los que te interesen y pulsa Continuar..</string>
-    <string name="txtReginald7"></string>
-    <string name="txtReginald8"></string>
-    <string name="txtReginald9"></string>
-    <string name="txtReginald10"></string>
 
 
     <string name="title_activity_info_consulting_vd">InfoConsultingVdActivity</string>
