@@ -18,11 +18,13 @@ import com.reginald.skola.main.RecyclerAdapter;
 /**
  * A placeholder fragment containing a simple view.
  */
-public class DegreesFragment extends Fragment implements RecyclerAdapter.listItemClick {
+public class DegreesFragment extends Fragment {
 
     private DatabaseHelper databaseHelper;
 
     private RecyclerView recyclerView;
+
+    private RecyclerAdapter adapter;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -31,9 +33,7 @@ public class DegreesFragment extends Fragment implements RecyclerAdapter.listIte
     }
 
     @Override
-    public View onCreateView(
-            @NonNull LayoutInflater inflater, ViewGroup container,
-            Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         databaseHelper = new DatabaseHelper(getContext());
 
@@ -44,25 +44,23 @@ public class DegreesFragment extends Fragment implements RecyclerAdapter.listIte
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(linearLayoutManager);
 
-        recyclerView.setAdapter(new RecyclerAdapter(databaseHelper.getUniversityDegrees(), this, getContext()));
+        adapter = new RecyclerAdapter(getContext());
+
+        adapter.setUniversityDegrees(databaseHelper.getUniversityDegrees());
+
+        recyclerView.setAdapter(adapter);
 
         return root;
     }
 
-    @Override
-    public void onListItemClick(int clickedItem) {
-
-
-    }
-
     /*Cargar la recycler con los datos de los favoritos o todos los grados dependiendo del parámetro de entrada*/
     void setFav(boolean fav) {
-        RecyclerAdapter adapter;
         if (fav) {
-            adapter = new RecyclerAdapter(databaseHelper.getFavUniversityDegrees(), this, getContext());
+            adapter.setUniversityDegrees(databaseHelper.getFavUniversityDegrees());
         } else {
-            adapter = new RecyclerAdapter(databaseHelper.getUniversityDegrees(), this, getContext());
+            adapter.setUniversityDegrees(databaseHelper.getUniversityDegrees());
         }
-        recyclerView.setAdapter(adapter);
+        adapter.setFavMode(fav);
+        adapter.notifyDataSetChanged();
     }
 }

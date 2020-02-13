@@ -20,20 +20,12 @@ import static com.reginald.skola.questions.ProvinciaQuestion.provincia;
 
 /*Fragment que muestra los grados sugeridos/recomendados*/
 
-public class SuggestedDegreesQuestion extends Fragment implements RecyclerAdapter.listItemClick {
+public class SuggestedDegreesQuestion extends Fragment {
+
+    private RecyclerAdapter adapter;
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-    }
-
-
-    @Override
-    public View onCreateView(
-            @NonNull LayoutInflater inflater, ViewGroup container,
-            Bundle savedInstanceState) {
-
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         DatabaseHelper databaseHelper = new DatabaseHelper(getContext());
 
         View root = inflater.inflate(R.layout.questions_suggested_degree, container, false);
@@ -44,15 +36,15 @@ public class SuggestedDegreesQuestion extends Fragment implements RecyclerAdapte
         RecyclerView recyclerView2 = root.findViewById(R.id.recyclerView2);
 
         /*Cargar la recycler con los grados devueltos por la consulta*/
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
-        recyclerView2.setLayoutManager(linearLayoutManager);
-        recyclerView2.setAdapter(new RecyclerAdapter(databaseHelper.getSuggestedUniversityDegrees(branchId, provincia), this, getContext()));
+        recyclerView2.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        adapter = new RecyclerAdapter(getContext());
+
+        recyclerView2.setAdapter(adapter);
+
+        adapter.setUniversityDegrees(databaseHelper.getSuggestedUniversityDegrees(branchId, provincia));
+        adapter.notifyDataSetChanged();
 
         return root;
-    }
-
-    @Override
-    public void onListItemClick(int clickedItem) {
-
     }
 }

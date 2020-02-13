@@ -23,6 +23,10 @@ public class UniversityDegree {
         return degreeName;
     }
 
+    public void setDegreeNote(String degreeNote) {
+        this.degreeNote = degreeNote;
+    }
+
     public String getDegreeNote() {
         return degreeNote;
     }
@@ -55,10 +59,9 @@ public class UniversityDegree {
         this.center = center;
     }
 
-    public UniversityDegree(int degreeId, String degreeName, String degreeNote, UniversityDegreeBranch branch, UniversityDegreeCampus campus, UniversityDegreeCenter center) {
+    public UniversityDegree(int degreeId, String degreeName, UniversityDegreeBranch branch, UniversityDegreeCampus campus, UniversityDegreeCenter center) {
         this.degreeId = degreeId;
         this.degreeName = degreeName;
-        this.degreeNote = degreeNote;
         this.branch = branch;
         this.campus = campus;
         this.center = center;
