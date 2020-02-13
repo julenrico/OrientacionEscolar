@@ -71,7 +71,6 @@ public class ProvinciaQuestion extends Fragment implements View.OnClickListener 
 
     private void fragmentTransaction() {
         FragmentTransaction fragmentTransactionEmpty = fragmentManager.beginTransaction();
-        fragmentTransactionEmpty.setCustomAnimations(R.anim.scale_up, R.anim.scale_down);
         fragmentTransactionEmpty.replace(R.id.fragmentLayouts, emptyQuestion);
         fragmentTransactionEmpty.commit();
     }

@@ -28,6 +28,7 @@ public class SuggestedDegreesQuestion extends Fragment implements RecyclerAdapte
 
     }
 
+
     @Override
     public View onCreateView(
             @NonNull LayoutInflater inflater, ViewGroup container,

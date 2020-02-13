@@ -72,6 +72,10 @@ public class DatabaseHelper extends SQLiteAssetHelper {
         getWritableDatabase().execSQL("DELETE FROM fav_university_degrees WHERE degree_Id = ? and center_Id=?", new String[]{String.valueOf(universityDegree.getDegreeId()), String.valueOf(universityDegree.getCenter().getCenterId())});
     }
 
+    public void updateNotes(int id, String note){
+        getWritableDatabase().rawQuery("UPDATE university_degrees SET degree_note=? WHERE degree_id=?", new String[]{note, String.valueOf(id)});
+    }
+
 
     /*Select de los grados favoritos*/
     public ArrayList<UniversityDegree> getFavUniversityDegrees() {
@@ -88,10 +92,10 @@ public class DatabaseHelper extends SQLiteAssetHelper {
         Log.d("CHORIPAN", String.valueOf(c.getCount()));
         c.moveToFirst();
         for (int i = 0; i < c.getCount(); i++) {
-            UniversityDegreeBranch branch = new UniversityDegreeBranch(c.getInt(5), c.getString(6));
-            UniversityDegreeCampus campus = new UniversityDegreeCampus(c.getInt(10), c.getString(11));
-            UniversityDegreeCenter center = new UniversityDegreeCenter(c.getInt(3), c.getString(8), campus);
-            favUniversityDegrees.add(new UniversityDegree(c.getInt(0), c.getString(1), branch, campus, center));
+            UniversityDegreeBranch branch = new UniversityDegreeBranch(c.getInt(6), c.getString(7));
+            UniversityDegreeCampus campus = new UniversityDegreeCampus(c.getInt(11), c.getString(12));
+            UniversityDegreeCenter center = new UniversityDegreeCenter(c.getInt(4), c.getString(9), campus);
+            favUniversityDegrees.add(new UniversityDegree(c.getInt(0), c.getString(1), c.getString(3), branch, campus, center));
             c.moveToNext();
         }
 
@@ -119,10 +123,10 @@ public class DatabaseHelper extends SQLiteAssetHelper {
         Log.d("CHORIPAN", String.valueOf(c.getCount()));
         c.moveToFirst();
         for (int i = 0; i < c.getCount(); i++) {
-            UniversityDegreeBranch branch = new UniversityDegreeBranch(c.getInt(5), c.getString(6));
-            UniversityDegreeCampus campus = new UniversityDegreeCampus(c.getInt(10), c.getString(11));
-            UniversityDegreeCenter center = new UniversityDegreeCenter(c.getInt(3), c.getString(8), campus);
-            universityDegrees.add(new UniversityDegree(c.getInt(0), c.getString(1), branch, campus, center));
+            UniversityDegreeBranch branch = new UniversityDegreeBranch(c.getInt(6), c.getString(7));
+            UniversityDegreeCampus campus = new UniversityDegreeCampus(c.getInt(11), c.getString(12));
+            UniversityDegreeCenter center = new UniversityDegreeCenter(c.getInt(4), c.getString(9), campus);
+            universityDegrees.add(new UniversityDegree(c.getInt(0), c.getString(1), c.getString(3), branch, campus, center));
             c.moveToNext();
         }
 
@@ -143,10 +147,10 @@ public class DatabaseHelper extends SQLiteAssetHelper {
         Log.d("CHORIPAN", String.valueOf(c.getCount()));
         c.moveToFirst();
         for (int i = 0; i < c.getCount(); i++) {
-            UniversityDegreeBranch branch = new UniversityDegreeBranch(c.getInt(5), c.getString(6));
-            UniversityDegreeCampus campus = new UniversityDegreeCampus(c.getInt(10), c.getString(11));
-            UniversityDegreeCenter center = new UniversityDegreeCenter(c.getInt(3), c.getString(8), campus);
-            suggestedUniversityDegrees.add(new UniversityDegree(c.getInt(0), c.getString(1), branch, campus, center));
+            UniversityDegreeBranch branch = new UniversityDegreeBranch(c.getInt(6), c.getString(7));
+            UniversityDegreeCampus campus = new UniversityDegreeCampus(c.getInt(11), c.getString(12));
+            UniversityDegreeCenter center = new UniversityDegreeCenter(c.getInt(4), c.getString(9), campus);
+            suggestedUniversityDegrees.add(new UniversityDegree(c.getInt(0), c.getString(1), c.getString(3), branch, campus, center));
             c.moveToNext();
         }
 

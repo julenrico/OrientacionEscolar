@@ -18,11 +18,13 @@ import com.reginald.skola.activities.QuestionsActivity;
 
 public class BranchQuestion extends Fragment implements View.OnClickListener {
 
+
     private ConstraintLayout artsLayout;
     private ConstraintLayout sciencesLayout;
     private ConstraintLayout healthLayout;
     private ConstraintLayout engineeringLayout;
     private ConstraintLayout lawsLayout;
+
 
     static int branchId;
 
@@ -85,9 +87,8 @@ public class BranchQuestion extends Fragment implements View.OnClickListener {
     }
 
     /*Cambiar de fragment*/
-    public void fragmentTransaction() {
+    private void fragmentTransaction() {
         FragmentTransaction fragmentTransactionEmpty = fragmentManager.beginTransaction();
-        fragmentTransactionEmpty.setCustomAnimations(R.anim.scale_up, R.anim.scale_down);
         fragmentTransactionEmpty.replace(R.id.fragmentLayouts, emptyQuestion);
         fragmentTransactionEmpty.commit();
     }

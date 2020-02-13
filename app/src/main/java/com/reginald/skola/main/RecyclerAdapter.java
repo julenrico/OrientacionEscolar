@@ -1,9 +1,14 @@
 package com.reginald.skola.main;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.text.Editable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,6 +33,10 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Numero
     private DatabaseHelper databaseHelper;
 
     private ArrayList<UniversityDegree> universityDegreesFav;
+
+    AlertDialog.Builder alert;
+    EditText dialogText;
+
 
     public RecyclerAdapter(List<UniversityDegree> universityDegrees, listItemClick listener, Context context) {
 
@@ -69,12 +78,13 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Numero
         return universityDegrees.size();
     }
 
-    class NumerosViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    class NumerosViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
 
         TextView txtDegreeName;
         TextView txtBranch;
         TextView txtCampus;
         TextView txtCenter;
+        TextView txtNote;
         LikeButton likeButton;
 
         public NumerosViewHolder(View itemView) {
@@ -84,12 +94,16 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Numero
             txtDegreeName = itemView.findViewById(R.id.txtDegreeName);
             txtCampus = itemView.findViewById(R.id.txtCampus);
             txtCenter = itemView.findViewById(R.id.txtCenter);
+            txtNote = itemView.findViewById(R.id.txtNote);
             likeButton = itemView.findViewById(R.id.heart_button);
 
             itemView.setOnClickListener(this);
+            itemView.setOnLongClickListener(this);
         }
 
         void bind(int listaIndex) {
+
+
 
             UniversityDegree degree = universityDegrees.get(listaIndex);
 
@@ -97,6 +111,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Numero
             txtBranch.setText(degree.getBranch().getBranchName());
             txtCampus.setText(degree.getCampus().getCampusName());
             txtCenter.setText(degree.getCenter().getCenterName());
+            txtNote.setText(degree.getDegreeNote());
 
             likeButton.setLiked(universityDegreesFav.contains(degree));
 
@@ -121,6 +136,17 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Numero
 
                 }
             });
+
+            alert = new AlertDialog.Builder(context);
+            dialogText = new EditText(context);
+            alert.setMessage("Introduce la Nota que le quieras añadir:");
+            alert.setTitle("NOTA");
+            alert.setView(dialogText);
+            alert.setPositiveButton("ACEPTAR", (dialog, which) -> {
+                String nota = dialogText.getText().toString();
+                databaseHelper.updateNotes(databaseHelper.getUniversityDegrees().get(getAdapterPosition()).getDegreeId(),nota);
+                notifyDataSetChanged();
+            });
         }
 
         @Override
@@ -130,6 +156,12 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Numero
             int clickedItem = getAdapterPosition();
 
             listItemOnclickListener.onListItemClick(clickedItem);
+        }
+
+        @Override
+        public boolean onLongClick(View v) {
+            alert.show();
+            return true;
         }
     }
 }
